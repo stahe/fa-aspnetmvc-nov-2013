@@ -1,0 +1,1997 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/fa-aspnetmvc-nov-2013/khntrlkhnndhh-khshnh-msyryby.html">
+      
+      
+        <link rel="prev" href="mbny-brnmhnwysy-wb.html">
+      
+      
+        <link rel="next" href="mdl-ykh-khshn.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>3. کنترل‌کننده‌ها، اکشن‌ها، مسیریابی - مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها" class="md-header__button md-logo" aria-label="مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. کنترل‌کننده‌ها، اکشن‌ها، مسیریابی
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="مخاطب به حالت تاریک"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="مخاطب به حالت تاریک" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="مخاطب به حالت روشن"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="مخاطب به حالت روشن" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/fa-aspnetmvc-nov-2013" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها" class="md-nav__button md-logo" aria-label="مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/fa-aspnetmvc-nov-2013" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    خوش آمدید
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mqdmh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. مقدمه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mbny-brnmhnwysy-wb.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. مبانی برنامه‌نویسی وب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. کنترل‌کننده‌ها، اکشن‌ها، مسیریابی
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="khntrlkhnndhh-khshnh-msyryby.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. کنترل‌کننده‌ها، اکشن‌ها، مسیریابی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-aspnet-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. ساختار یک پروژه ASP.NET MVC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. مسیر‌یابی پیش‌فرض برای URL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. ایجاد یک کنترلر و اولین اکشن
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-contentresult-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4. اقدامی با نتیجه‌ای از نوع [ContentResult] - 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-contentresult-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5. اقدامی با نتیجه‌ای از نوع [ContentResult] - 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-jsonresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6. اقدامی با نتیجه از نوع [JsonResult]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7. اقدامی با نتیجه‌ای از نوع [string]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-emptyresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8. عملی با نتیجه‌ای از نوع [EmptyResult]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-redirectresult-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9. عمل با نتیجه‌ای از نوع [RedirectResult] - 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#310-redirectresult-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.10. عملی با نتیجه‌ای از نوع [RedirectResult] - 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#311-redirecttorouteresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.11. اقدامی با نتیجه از نوع [RedirectToRouteResult]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#312-void" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.12. عملی با نتیجه‌ای از نوع [void]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.13. یک کنترلر دوم
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#314" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.14. اقدامی که توسط یک ویژگی فیلتر شده است
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#315" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.15. بازیابی عناصر از یک مسیر
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mdl-ykh-khshn.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. مدل یک اکشن
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wyw-w-qlb-an.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. ویو و قالب آن
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="bynlmllyszy-wywh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. بین‌المللی‌سازی ویوها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="twnmndszy-ykh-brnmh-b-ajax-aspnet-mvc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. توانمندسازی یک برنامه با Ajax ASP.NET MVC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ntyjhgyry-mwqt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. نتیجه‌گیری موقت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mlh-mwrdy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. مطالعه موردی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ntyjhgyry.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. نتیجه‌گیری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pywsth.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="refheading58022676630786" name="refheading58022676630786" class="odt-bookmark-anchor"></span></p>
+<h1 id="3">3. <span style="color: #365f91">کنترل‌کننده‌ها، اکشن‌ها، مسیریابی</span></h1>
+<p>بیایید معماری یک برنامه <bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi> را در نظر بگیریم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/1000000000000535000001A54D09B830.png" width="667" height="211" style="display:inline-block; margin:4px;width:17.635cm;height:5.57cm;" class="odt-zoomable" data-zoom-src="images/1000000000000535000001A54D09B830.png" /></td></tr></table>
+
+<p>در این فصل، فرآیند مسیریابی یک درخواست به کنترلر و اکشنی که آن را پردازش می‌کند، بررسی می‌شود؛ سازوکاری که به آن مسیریابی (رووتینگ) گفته می‌شود. ما همچنین پاسخ‌های مختلف [3] را که یک اکشن می‌تواند به مرورگر بازگرداند، تشریح می‌کنیم. این ممکن است چیزی غیر از یک نمای <strong><bdi dir="ltr" class="odt-ltr-term">V</bdi></strong> [4b] باشد.</p>
+<p><span id="refheading10128914791633" name="refheading10128914791633" class="odt-bookmark-anchor"></span></p>
+<h2 id="31-aspnet-mvc">3.1. <span style="color: #4f81bd">ساختار یک پروژه <bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi></span></h2>
+<p>بیایید اولین پروژه <bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi> خود را با استفاده از <bdi dir="ltr" class="odt-ltr-term">Visual Studio Express</bdi> 2012 بسازیم. آن را [1] به راه‌حلی که در فصل قبلی استفاده شد اضافه خواهیم کرد:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000005D80000021E8F8AD477.png" width="680" height="246" style="display:inline-block; margin:4px;width:17.999cm;height:6.519cm;" class="odt-zoomable" data-zoom-src="images/10000000000005D80000021E8F8AD477.png" /></td></tr></table>
+
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/1000000000000515000002D013AB9480.png" width="651" height="360" style="display:inline-block; margin:4px;width:17.212cm;height:9.525cm;" class="odt-zoomable" data-zoom-src="images/1000000000000515000002D013AB9480.png" /></td></tr></table>
+
+<ul>
+  <li>به عنوان [2]، نام پروژه جدید؛
+  </li>
+  <li>و [3, 4]، که برای آن یک پروژهٔ پایهٔ <bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi> انتخاب خواهیم کرد. این قالب یک برنامه وب خالی در اختیار ما قرار می‌دهد، اما با تمام منابع (<bdi dir="ltr" class="odt-ltr-term">DLL</bdi>، کتابخانه‌های <bdi dir="ltr" class="odt-ltr-term">JavaScript</bdi> و غیره) که برای کار نیاز داریم.
+  </li>
+</ul>
+
+<p>پروژهٔ حاصل در [5] نشان داده شده است. ما این [6] را به‌عنوان پروژهٔ شروع‌کنندهٔ<span id="projet-de-demarrage" name="projet-de-demarrage" class="odt-bookmark-anchor"></span> برای راه‌حل انتخاب خواهیم کرد:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/1000000000000356000003396474F365.png" width="427" height="413" style="display:inline-block; margin:4px;width:11.298cm;height:10.915cm;" class="odt-zoomable" data-zoom-src="images/1000000000000356000003396474F365.png" /></td></tr></table>
+
+<p>نکات زیر باید در [5] مورد توجه قرار گیرند:</p>
+<ul>
+  <li>معماری پروژه بازتاب‌دهنده مدل آن <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> است: 
+  </li>
+  <li>کنترل‌کننده‌های <b><bdi dir="ltr" class="odt-ltr-term">C</bdi> </b>در پوشه [<bdi dir="ltr" class="odt-ltr-term">Controllers</bdi>] قرار داده خواهند شد،
+  </li>
+  <li>مدل‌های داده <b><bdi dir="ltr" class="odt-ltr-term">M</bdi> </b>در پوشه [<bdi dir="ltr" class="odt-ltr-term">Models</bdi>] قرار داده خواهند شد،
+  </li>
+  <li>ویوهای <b><bdi dir="ltr" class="odt-ltr-term">V</bdi> </b>در پوشه [<bdi dir="ltr" class="odt-ltr-term">Views</bdi>] قرار داده خواهند شد،
+  </li>
+</ul>
+
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000005A4000002293447BEB9.png" width="680" height="261" style="display:inline-block; margin:4px;width:17.999cm;height:6.893cm;" class="odt-zoomable" data-zoom-src="images/10000000000005A4000002293447BEB9.png" /></td></tr></table>
+
+<ul>
+  <li>در [1]، فایل [<bdi dir="ltr" class="odt-ltr-term">Site.css</bdi>] به عنوان فایل پیش‌فرض برنامه <bdi dir="ltr" class="odt-ltr-term">CSS</bdi> قرار خواهد گرفت؛
+  </li>
+  <li>در [2]، تعدادی کتابخانه جاوااسکریپت در اختیار ما قرار گرفته است؛
+  </li>
+  <li>در [3]، سه نمای مشخص وجود دارد: <b>_ViewStart، _Layout و <bdi dir="ltr" class="odt-ltr-term">Error</bdi></b>.
+  </li>
+</ul>
+
+<p>فایل [_ViewStart] به شرح زیر است:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">@{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    Layout = </span><span style="color:#a31515">&quot;~/Views/Shared/_Layout.cshtml&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">خط ۱: کاراکتر @ نشان‌دهنده یک توالی <bdi dir="ltr" class="odt-ltr-term">C#</bdi> در داخل ویو است. در واقع، می‌توان کد <bdi dir="ltr" class="odt-ltr-term">C#</bdi> را در یک ویو گنجاند؛</span>
+  </li>
+  <li><span style="color: #000000">خط ۲: متغیر <bdi dir="ltr" class="odt-ltr-term">Layout</bdi> را تعریف می‌کند که نمای والد همه نماها را مشخص می‌کند. این متغیر معادل صفحهٔ اصلی (<bdi dir="ltr" class="odt-ltr-term">master page</bdi>) چارچوب استاندارد <bdi dir="ltr" class="odt-ltr-term">ASP.NET</bdi> است.</span>
+  </li>
+</ul>
+
+<p>فایل [_Layout]<span id="layout" name="layout" class="odt-bookmark-anchor"></span> به شرح زیر است:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;!</span><span style="color:#800000">DOCTYPE</span><span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">html</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">head</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">meta</span><span style="color:#000000"> </span><span style="color:#ff0000">charset</span><span style="color:#0000ff">=&quot;utf-8&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">/&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">meta</span><span style="color:#000000"> </span><span style="color:#ff0000">name</span><span style="color:#0000ff">=&quot;viewport&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">content</span><span style="color:#0000ff">=&quot;width=device-width&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">/&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">title</span><span style="color:#0000ff">&gt;</span><span style="color:#000000">@ViewBag.Title</span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">title</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    @</span><span style="color:#2b91af">Styles</span><span style="color:#000000">.Render(</span><span style="color:#a31515">&quot;~/Content/css&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    @</span><span style="color:#2b91af">Scripts</span><span style="color:#000000">.Render(</span><span style="color:#a31515">&quot;~/bundles/modernizr&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">head</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">body</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    @RenderBody()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    @</span><span style="color:#2b91af">Scripts</span><span style="color:#000000">.Render(</span><span style="color:#a31515">&quot;~/bundles/jquery&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    @RenderSection(</span><span style="color:#a31515">&quot;scripts&quot;</span><span style="color:#000000">, required: </span><span style="color:#0000ff">false</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">body</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">html</span><span style="color:#0000ff">&gt;</span></span></span>
+</code></pre></div>
+
+<p><span style="color: #000000">وقتی یک ویو از پوشه [<bdi dir="ltr" class="odt-ltr-term">Views</bdi>] رندر می‌شود، بدنه آن توسط خط ۱۱ بالا رندر خواهد شد. این بدان معناست که ویو نیازی به شامل کردن تگ‌های &lt;<bdi dir="ltr" class="odt-ltr-term">html</bdi>&gt;، &lt;<bdi dir="ltr" class="odt-ltr-term">head</bdi>&gt; یا &lt;<bdi dir="ltr" class="odt-ltr-term">body</bdi>&gt; ندارد. این تگ‌ها توسط فایل فوق فراهم شده‌اند. در حال حاضر، این فایل نسبتاً مبهم است. بیایید آن را ساده‌تر کنیم:</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;!</span><span style="color:#800000">DOCTYPE</span><span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">html</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">head</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">meta</span><span style="color:#000000"> </span><span style="color:#ff0000">charset</span><span style="color:#0000ff">=&quot;utf-8&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">/&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">meta</span><span style="color:#000000"> </span><span style="color:#ff0000">name</span><span style="color:#0000ff">=&quot;viewport&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">content</span><span style="color:#0000ff">=&quot;width=device-width&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">/&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">title</span><span style="color:#0000ff">&gt;</span><span style="color:#000000">Tutoriel ASP.NET MVC</span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">title</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">head</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">body</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">h2</span><span style="color:#0000ff">&gt;</span><span style="color:#000000">Tutoriel ASP.NET MVC</span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">h2</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  @RenderBody()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">body</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">html</span><span style="color:#0000ff">&gt;</span></span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">خط ۶: عنوان مشترک برای همهٔ نماها؛</span>
+  </li>
+  <li><span style="color: #000000">خط ۹: هدر مشترک برای همه نماها؛</span>
+  </li>
+  <li><span style="color: #000000">خط ۱۰: محتوایی که مختص نمای در حال نمایش است.</span>
+  </li>
+</ul>
+
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000000960000003AABB03712.png" width="150" height="58" style="display:inline-block; margin:4px;width:3.971cm;height:1.529cm;" class="odt-zoomable" data-zoom-src="images/10000000000000960000003AABB03712.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<ul>
+  <li><span style="color: #000000">[<bdi dir="ltr" class="odt-ltr-term">Web.config</bdi>] فایل پیکربندی وب‌اپلیکیشن است. این فایل پیچیده است. هنگام استفاده از چارچوب [<bdi dir="ltr" class="odt-ltr-term">Spring.net</bdi>] در یک معماری چندلایه، لازم است آن را اصلاح کنید.</span>
+  </li>
+  <li><span style="color: #000000">[<bdi dir="ltr" class="odt-ltr-term">Global.asax</bdi>] حاوی کدی است که هنگام راه‌اندازی برنامه اجرا می‌شود. به طور کلی، این کد از فایل‌های پیکربندی مختلف برنامه، از جمله [<bdi dir="ltr" class="odt-ltr-term">Web.config</bdi>]، استفاده می‌کند.</span>
+  </li>
+</ul>
+
+<p><span id="refheading58024676630786" name="refheading58024676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="32-url">3.2. <span style="color: #000000">مسیر‌یابی پیش‌فرض برای <bdi dir="ltr" class="odt-ltr-term">URL</bdi></span></h2>
+<p><span style="color: #000000">کد برای [<bdi dir="ltr" class="odt-ltr-term">Global.asax</bdi>] در حال حاضر به شرح زیر است:</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Http;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Mvc;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Optimization;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Routing;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">namespace</span><span style="color:#000000"> Exemple_01</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">MvcApplication</span><span style="color:#000000"> : System.Web.</span><span style="color:#2b91af">HttpApplication</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">protected</span><span style="color:#000000"> </span><span style="color:#0000ff">void</span><span style="color:#000000"> Application_Start()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">   ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">خط ۶، <bdi dir="ltr" class="odt-ltr-term">namespace</bdi> برای کلاس. این مستقیماً از نام پروژه مشتق شده و در ویژگی‌های پروژه یافت می‌شود:</span>
+  </li>
+</ul>
+
+<p><img src="images/100000000000021E0000026DA93E2986.png" width="379" height="435" style="width:10.04cm;height:11.501cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021E0000026DA93E2986.png" /></p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000004210000006F383712A7.png" width="529" height="56" style="display:inline-block; margin:4px;width:13.984cm;height:1.469cm;" class="odt-zoomable" data-zoom-src="images/10000000000004210000006F383712A7.png" /></td></tr></table>
+
+<p><span style="color: #000000">ما فضای نام پیش‌فرض را روی [1] تنظیم می‌کنیم. سپس این به طور پیش‌فرض برای تمام کلاس‌هایی که در پروژه ایجاد می‌شوند، استفاده می‌شود.</span></p>
+<p><span style="color: #000000">بیایید به کد مربوط به [<bdi dir="ltr" class="odt-ltr-term">Global.asax</bdi>] بازگردیم:</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Http;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Mvc;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Optimization;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Routing;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">namespace</span><span style="color:#000000"> Exemple_01</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">MvcApplication</span><span style="color:#000000"> : System.Web.</span><span style="color:#2b91af">HttpApplication</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">protected</span><span style="color:#000000"> </span><span style="color:#0000ff">void</span><span style="color:#000000"> Application_Start()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">   ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li><span style="color: #000000">خط ۹: کلاس [<bdi dir="ltr" class="odt-ltr-term">MvcApplication</bdi>] از کلاس [<bdi dir="ltr" class="odt-ltr-term">HttpApplication</bdi>] ارث می‌برد. نام [<bdi dir="ltr" class="odt-ltr-term">MvcApplication</bdi>] را می‌توان تغییر داد؛</span>
+  </li>
+  <li><span style="color: #000000">خط ۱۱: متد [<bdi dir="ltr" class="odt-ltr-term">Application_Start</bdi>] متدی است که هنگام راه‌اندازی برنامه وب اجرا می‌شود. این متد تنها یک بار اجرا می‌شود. در اینجا است که برنامه اولیه می‌شود.</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">کد مربوط به [<bdi dir="ltr" class="odt-ltr-term">Application</bdi>_Start] در حال حاضر به شرح زیر است:</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">protected</span><span style="color:#000000"> </span><span style="color:#0000ff">void</span><span style="color:#000000"> Application_Start()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#2b91af">AreaRegistration</span><span style="color:#000000">.RegisterAllAreas();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#2b91af">WebApiConfig</span><span style="color:#000000">.Register(</span><span style="color:#2b91af">GlobalConfiguration</span><span style="color:#000000">.Configuration);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#2b91af">FilterConfig</span><span style="color:#000000">.RegisterGlobalFilters(</span><span style="color:#2b91af">GlobalFilters</span><span style="color:#000000">.Filters);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#2b91af">RouteConfig</span><span style="color:#000000">.RegisterRoutes(</span><span style="color:#2b91af">RouteTable</span><span style="color:#000000">.Routes);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#2b91af">BundleConfig</span><span style="color:#000000">.RegisterBundles(</span><span style="color:#2b91af">BundleTable</span><span style="color:#000000">.Bundles);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><span style="color: #000000">فعلاً نیازی نیست که تمام این کد را درک کنید. خطوط ۵ تا ۸ مسیرهای پذیرفته‌شده توسط وب‌اپلیکیشن را تعریف می‌کنند. بیایید به معماری یک برنامه <bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi> بازگردیم:</span></p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/1000000000000546000001A892AB2DCF.png" width="675" height="212" style="display:inline-block; margin:4px;width:17.859cm;height:5.609cm;" class="odt-zoomable" data-zoom-src="images/1000000000000546000001A892AB2DCF.png" /></td></tr></table>
+
+<p><span style="color: #000000">ما توضیح دادیم که [<bdi dir="ltr" class="odt-ltr-term">Front Controller</bdi>] مسئول مسیریابی یک <bdi dir="ltr" class="odt-ltr-term">URL</bdi> به اکشن مسئول پردازش آن است. یک مسیر برای پیوند دادن یک قالب <bdi dir="ltr" class="odt-ltr-term">URL</bdi> به یک اکشن استفاده می‌شود. این مسیرها توسط کلاس‌های [<bdi dir="ltr" class="odt-ltr-term">WebApiConfig, FilterConfig, RouteConfig, BundleConfig</bdi>] در پوشه [<bdi dir="ltr" class="odt-ltr-term">App</bdi>_Start] پروژه تعریف می‌شوند:</span></p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000000A90000005B0B6C09C4.png" width="118" height="63" style="display:inline-block; margin:4px;width:3.129cm;height:1.679cm;" class="odt-zoomable" data-zoom-src="images/10000000000000A90000005B0B6C09C4.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p><span style="color: #000000">در حال حاضر، ما تنها به کلاس [<bdi dir="ltr" class="odt-ltr-term">RouteConfig</bdi>] علاقه‌مند هستیم:</span></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Mvc;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Routing;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">namespace</span><span style="color:#000000"> Exemple_01</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">RouteConfig</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#0000ff">static</span><span style="color:#000000"> </span><span style="color:#0000ff">void</span><span style="color:#000000"> RegisterRoutes(</span><span style="color:#2b91af">RouteCollection</span><span style="color:#000000"> routes)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      routes.IgnoreRoute(</span><span style="color:#a31515">&quot;{resource}.axd/{*pathInfo}&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      routes.MapRoute(</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          name: </span><span style="color:#a31515">&quot;Default&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          url: </span><span style="color:#a31515">&quot;{controller}/{action}/{id}&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          defaults: </span><span style="color:#0000ff">new</span><span style="color:#000000"> { controller = </span><span style="color:#a31515">&quot;Home&quot;</span><span style="color:#000000">, action = </span><span style="color:#a31515">&quot;Index&quot;</span><span style="color:#000000">, id = </span><span style="color:#2b91af">UrlParameter</span><span style="color:#000000">.Optional }</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      );</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p><span style="color: #000000">خطوط ۱۲ تا ۱۶ فرمت فایل‌های <bdi dir="ltr" class="odt-ltr-term">URL</bdi> را که توسط برنامه پذیرفته می‌شوند، تعریف می‌کنند. به این یک </span><strong><span style="color: #000000">مسیر</span></strong><span style="color: #000000"> گفته می‌شود. ممکن است چندین مسیر (= چندین قالب ممکن <bdi dir="ltr" class="odt-ltr-term">URL</bdi>) وجود داشته باشد. آن‌ها با نام خود (خط ۱۳) از یکدیگر متمایز می‌شوند. قالب <bdi dir="ltr" class="odt-ltr-term">URL</bdi> برای مسیر در خط 14 تعریف شده است. در اینجا، <bdi dir="ltr" class="odt-ltr-term">URL</bdi> سه جزء خواهد داشت:</span></p>
+<ul>
+  <li><b><span style="color: #000000">{کنترل‌کننده}</span></b><span style="color: #000000">: نام کلاسی مشتق‌شده از [<bdi dir="ltr" class="odt-ltr-term">Controller</bdi>]. این کلاس در پوشه [<bdi dir="ltr" class="odt-ltr-term">Controllers</bdi>] پروژه جستجو خواهد شد. طبق کنوانسیون، اگر <bdi dir="ltr" class="odt-ltr-term">URL</bdi> برابر با /<bdi dir="ltr" class="odt-ltr-term">X/Y/Z</bdi> باشد، کنترلری که مسئول رسیدگی به این <bdi dir="ltr" class="odt-ltr-term">URL</bdi> است، کلاس </span><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">XController</bdi></span></b><span style="color: #000000"> خواهد بود. پسوند </span><b><span style="color: #000000">«<bdi dir="ltr" class="odt-ltr-term">Controller</bdi>» </span></b><span style="color: #000000">به نام کنترلر موجود در <bdi dir="ltr" class="odt-ltr-term">URL</bdi> اضافه می‌شود؛</span>
+  </li>
+  <li><span style="color: #000000">{</span><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">action</bdi></span></b><span style="color: #000000">}: نام متدی در کنترلر مشخص‌شده در بالا. این متد پارامترهای همراه با <bdi dir="ltr" class="odt-ltr-term">URL</bdi> را دریافت کرده و آن‌ها را پردازش می‌کند. این متد ممکن است نتایج مختلفی بازگرداند:</span>
+    <ul>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">void</bdi></span></b><span style="color: #000000">: عمل پاسخ را خودِ مرورگر مشتری تولید می‌کند</span>
+      </li>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">String</bdi></span></b><span style="color: #000000">: عمل یک رشته را به کلاینت بازمی‌گرداند؛</span>
+      </li>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">ViewResult</bdi></span></b><span style="color: #000000">: یک ویو را به کلاینت بازمی‌گرداند؛</span>
+      </li>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">PartialViewResult</bdi></span></b><span style="color: #000000">: یک نمای جزئی را بازمی‌گرداند؛</span>
+      </li>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">EmptyResult</bdi></span></b><span style="color: #000000">: یک پاسخ خالی به کلاینت ارسال می‌شود؛</span>
+      </li>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">RedirectResult</bdi></span></b><span style="color: #000000">: به کلاینت دستور می‌دهد که به یک <bdi dir="ltr" class="odt-ltr-term">URL</bdi> هدایت (<bdi dir="ltr" class="odt-ltr-term">redirect</bdi>) شود</span>
+      </li>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">RedirectToRouteResult</bdi></span></b><span style="color: #000000">: مشابه مورد بالا، اما <bdi dir="ltr" class="odt-ltr-term">URL</bdi> از مسیرهای برنامه ساخته شده است؛</span>
+      </li>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">JsonResult</bdi></span></b><span style="color: #000000">: یک پاسخ <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> ارسال می‌کند</span>
+      </li>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">JavaScriptResult</bdi></span></b><span style="color: #000000">: یک کد جاوااسکریپت را به کلاینت بازمی‌گرداند؛</span>
+      </li>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">ContentResult</bdi></span></b><span style="color: #000000">: یک فید <bdi dir="ltr" class="odt-ltr-term">HTML</bdi> را بدون عبور از یک ویو به کلاینت بازمی‌گرداند؛</span>
+      </li>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">FileContentResult</bdi></span></b><span style="color: #000000">: یک فایل را به کلاینت بازمی‌گرداند؛</span>
+      </li>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">FileStreamResult</bdi></span></b><span style="color: #000000">: مشابه مورد بالا، اما از طریق مسیری متفاوت؛</span>
+      </li>
+      <li><b><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">FilePathResult</bdi></span></b><span style="color: #000000">: ...</span>
+      </li>
+    </ul>
+  </li>
+  <li><b><span style="color: #000000">{id}</span></b><span style="color: #000000">: پارامتری که به اکشن ارسال می‌شود. برای اینکه این کار کند، اکشن باید پارامتری به نام </span><b><span style="color: #000000">&#x27;id&#x27;</span></b><span style="color: #000000"> داشته باشد.</span>
+  </li>
+</ul>
+
+<p><span style="color: #000000">خط ۱۵ مقادیر پیش‌فرض را زمانی تعریف می‌کند که <bdi dir="ltr" class="odt-ltr-term">URL</bdi> قالب مورد انتظار </span><span style="color: #a31515">/{<bdi dir="ltr" class="odt-ltr-term">controller</bdi>}/{<bdi dir="ltr" class="odt-ltr-term">action</bdi>}/{id} </span><span style="color: #000000">را نداشته باشد</span><span style="color: #a31515">. </span>همچنین مشخص می‌کند که پارامتر <strong>{id}</strong> در <bdi dir="ltr" class="odt-ltr-term">URL</bdi> اختیاری است. در اینجا فهرستی از <bdi dir="ltr" class="odt-ltr-term">URL</bdi>های ناقص و <bdi dir="ltr" class="odt-ltr-term">URL</bdi> تکمیل‌شده با مقادیر پیش‌فرض آورده شده است:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0"><b><bdi dir="ltr" class="odt-ltr-term">URL</bdi> اصلی</b></div></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0"><b><bdi dir="ltr" class="odt-ltr-term">URL</bdi> تکمیل‌شده</b></div></td></tr><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">/</div></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">/خانه/شاخص</div></td></tr><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">/انجام</div></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">/<bdi dir="ltr" class="odt-ltr-term">Do/Index</bdi></div></td></tr><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">/انجام/چیزی</div></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">/انجام/کاری</div></td></tr><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">/<bdi dir="ltr" class="odt-ltr-term">Do/Something/4</bdi></div></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">/<bdi dir="ltr" class="odt-ltr-term">Do/Something/4</bdi></div></td></tr><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">/<bdi dir="ltr" class="odt-ltr-term">Do/Something/x/y/z</bdi></div></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0"><bdi dir="ltr" class="odt-ltr-term">URL</bdi> مسیریابی نشده</div></td></tr></table>
+
+<p><span id="refheading58026676630786" name="refheading58026676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="33">3.3. <span style="color: #4f81bd">ایجاد یک کنترلر و اولین اکشن</span></h2>
+<p>بیایید اولین کنترلر خود را بسازیم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/1000000000000359000000A19E6EE445.png" width="544" height="102" style="display:inline-block; margin:4px;width:14.392cm;height:2.704cm;" class="odt-zoomable" data-zoom-src="images/1000000000000359000000A19E6EE445.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/1000000000000368000001382C98CD67.png" width="436" height="156" style="display:inline-block; margin:4px;width:11.536cm;height:4.128cm;" class="odt-zoomable" data-zoom-src="images/1000000000000368000001382C98CD67.png" /></td></tr></table>
+
+<ul>
+  <li>در [1]، نام کنترلر را به همراه پسوند آن [<bdi dir="ltr" class="odt-ltr-term">Controller</bdi>] وارد کنید؛
+  </li>
+  <li>در [2]، یک کنترلر خالی با نام <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> ایجاد کنید؛
+  </li>
+  <li>در [3]، آن ایجاد شده است.
+  </li>
+</ul>
+
+<p>کد برای [<bdi dir="ltr" class="odt-ltr-term">FirstController</bdi>] به شرح زیر است:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Collections.Generic;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Linq;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Mvc;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">namespace</span><span style="color:#000000"> Exemple_01.Controllers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">FirstController</span><span style="color:#000000"> : </span><span style="color:#2b91af">Controller</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">//</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// GET: /First/</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">ActionResult</span><span style="color:#000000"> Index()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">return</span><span style="color:#000000"> View();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>خط ۷: یک <bdi dir="ltr" class="odt-ltr-term">namespace</bdi> پیش‌فرض ایجاد شده است؛
+  </li>
+  <li>خط ۹: کلاس [<bdi dir="ltr" class="odt-ltr-term">FirstController</bdi>] از کلاس [<bdi dir="ltr" class="odt-ltr-term">System.Web.Mvc.Controller</bdi>] ارث می‌برد؛
+  </li>
+  <li>خطوط 14–17: یک اکشن [<bdi dir="ltr" class="odt-ltr-term">Index</bdi>] به‌صورت پیش‌فرض ایجاد شده است. این اکشن <b>عمومی</b> است. این موضوع مهم است؛ در غیر این صورت، پیدا نخواهد شد. این اکشن یک نوع [<bdi dir="ltr" class="odt-ltr-term">ActionResult</bdi>] را بازمی‌گرداند که یک کلاس انتزاعی است و بیشتر نتایجی که معمولاً توسط یک اکشن بازگردانده می‌شوند، از آن مشتق شده‌اند. این یک نوع «کلی» (<bdi dir="ltr" class="odt-ltr-term">catch-all</bdi>) است که می‌توان آن را با جایگزین کردنش با نام واقعی نوع بازگشتی مشخص کرد؛
+  </li>
+  <li>خط ۱۶: این متد هیچ کاری انجام نمی‌دهد. این متد صرفاً یک ویو (<bdi dir="ltr" class="odt-ltr-term">view</bdi>) را بازمی‌گرداند، یعنی یک نوع [<bdi dir="ltr" class="odt-ltr-term">ViewResult</bdi>]. نام ویو مشخص نشده است. در این مورد، فریم‌ورک در پوشه [<bdi dir="ltr" class="odt-ltr-term">Views / First</bdi>] به دنبال ویویی با نام اکشن می‌گردد که در این مورد عبارت است از: [<bdi dir="ltr" class="odt-ltr-term">Index.cshtml</bdi>].
+  </li>
+</ul>
+
+<p>بیایید ویوی [<bdi dir="ltr" class="odt-ltr-term">Index.cshtml</bdi>] را ایجاد کنیم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000005820000026E4E43F847.png" width="680" height="300" style="display:inline-block; margin:4px;width:17.999cm;height:7.939cm;" class="odt-zoomable" data-zoom-src="images/10000000000005820000026E4E43F847.png" /></td></tr></table>
+
+<ul>
+  <li>در [1]، روی کد اکشن کلیک راست کرده و گزینه [<bdi dir="ltr" class="odt-ltr-term">Ajouter une vue</bdi>] را انتخاب کنید؛
+  </li>
+  <li>در [2]، ویزارد یک نما با نامی مشابه با عمل پیشنهاد می‌دهد. این همان چیزی است که ما اینجا می‌خواهیم؛
+  </li>
+  <li>در [3]، به طور پیش‌فرض، استفاده از صفحه اصلی [_Layout.<bdi dir="ltr" class="odt-ltr-term">cshtml</bdi>] پیشنهاد می‌شود؛
+  </li>
+  <li>در [4]، پس از تأیید، جادوگر نما را در یک زیرپوشه از پوشه [<bdi dir="ltr" class="odt-ltr-term">Views</bdi>] که به نام کنترلر (<bdi dir="ltr" class="odt-ltr-term">First</bdi>) نام‌گذاری شده است، ایجاد می‌کند.
+  </li>
+</ul>
+
+<p>کد تولیدشده برای نما [<bdi dir="ltr" class="odt-ltr-term">Index</bdi>] به شرح زیر است:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content">@{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    ViewBag.Title = </span><span style="color:#a31515">&quot;Index&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">h2</span><span style="color:#0000ff">&gt;</span><span style="color:#000000">Index</span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">h2</span><span style="color:#0000ff">&gt;</span></span></span>
+</code></pre></div>
+
+<ul>
+  <li>خطوط ۱–۳: کد <bdi dir="ltr" class="odt-ltr-term">C#</bdi> که یک متغیر را تعریف می‌کند؛
+  </li>
+  <li>خط ۵: یک تگ <bdi dir="ltr" class="odt-ltr-term">HTML.</bdi>
+  </li>
+</ul>
+
+<p>تمام کد قبلی را با موارد زیر جایگزین کنید:</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">strong</span><span style="color:#0000ff">&gt;</span><span style="color:#000000">Vue [Index]...</span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">strong</span><span style="color:#0000ff">&gt;</span></span></span>
+</code></pre></div>
+
+<p>برای خلاصه کردن:</p>
+<ul>
+  <li>ما یک کنترل‌کننده <b><bdi dir="ltr" class="odt-ltr-term">C</bdi> </b>به نام [<bdi dir="ltr" class="odt-ltr-term">First</bdi>] داریم؛
+  </li>
+  <li>ما یک اکشن به نام [<bdi dir="ltr" class="odt-ltr-term">Index</bdi>] داریم که نمایش یک ویو به نام [<bdi dir="ltr" class="odt-ltr-term">Index</bdi>] را درخواست می‌کند؛
+  </li>
+  <li>ما نمای <b><bdi dir="ltr" class="odt-ltr-term">V</bdi> </b>[<bdi dir="ltr" class="odt-ltr-term">Index</bdi>] را داریم.
+  </li>
+</ul>
+
+<p>می‌توانیم اکشن [<bdi dir="ltr" class="odt-ltr-term">Index</bdi>] را به دو روش فراخوانی کنیم:</p>
+<ul>
+  <li>/<bdi dir="ltr" class="odt-ltr-term">First/Index</bdi>;
+  </li>
+  <li>/اول، از آنجا که [<bdi dir="ltr" class="odt-ltr-term">Index</bdi>] همچنین اقدام پیش‌فرض در مسیرها است.
+  </li>
+</ul>
+
+<p>بیایید برنامه (<bdi dir="ltr" class="odt-ltr-term">CTRL-F5</bdi>) را اجرا کنیم. صفحه زیر را دریافت می‌کنیم:</p>
+<p>1</p>
+<p><img src="images/10000000000001EB00000112B2039E6A.png" width="344" height="192" style="width:9.089cm;height:5.069cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001EB00000112B2039E6A.png" /></p>
+<p>در [1]، <bdi dir="ltr" class="odt-ltr-term">URL</bdi> درخواستی <strong><bdi dir="ltr" class="odt-ltr-term">http://localhost:49302</bdi></strong> بود. هیچ مسیری وجود ندارد. می‌دانیم که روتر ما انتظار <bdi dir="ltr" class="odt-ltr-term">URL</bdi> را به شکل <strong>/{<bdi dir="ltr" class="odt-ltr-term">controller</bdi>}/{<bdi dir="ltr" class="odt-ltr-term">action</bdi>}/</strong> دارد.<strong>{id}.</strong> از آنجا که این عناصر وجود ندارند، از مقادیر پیش‌فرض استفاده می‌شود. <bdi dir="ltr" class="odt-ltr-term">URL</bdi> به <strong><bdi dir="ltr" class="odt-ltr-term">http://localhost:49302/Home/Index</bdi></strong> تبدیل می‌شود. کنترلر [<bdi dir="ltr" class="odt-ltr-term">Home</bdi>] وجود ندارد. بنابراین، <bdi dir="ltr" class="odt-ltr-term">URL</bdi> رد می‌شود.</p>
+<p>اکنون بیایید <bdi dir="ltr" class="odt-ltr-term">URL</bdi> <strong><bdi dir="ltr" class="odt-ltr-term">http://localhost:49302/First/Index</bdi></strong> را با تایپ مستقیم آن در مرورگر امتحان کنیم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/100000000000028400000136A17562B6.png" width="322" height="155" style="display:inline-block; margin:4px;width:8.52cm;height:4.101cm;" class="odt-zoomable" data-zoom-src="images/100000000000028400000136A17562B6.png" /></td></tr></table>
+
+<p>صفحه بالا توسط اکشن [<bdi dir="ltr" class="odt-ltr-term">Index</bdi>] از کنترلر [<bdi dir="ltr" class="odt-ltr-term">First</bdi>] تولید شده است. صفحه تولید شده توسط این اکشن، ویو [<bdi dir="ltr" class="odt-ltr-term">Index</bdi>] است که کد آن به شرح زیر بود:</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">strong</span><span style="color:#0000ff">&gt;</span><span style="color:#000000">Vue [Index]...</span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">strong</span><span style="color:#0000ff">&gt;</span></span></span>
+</code></pre></div>
+
+<p>این بخش [1] را تولید می‌کند. در همین حال، بخش [2] از صفحهٔ اصلی [_Layout] می‌آید که ما کمی پیش‌تر تعریف کردیم:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;!</span><span style="color:#800000">DOCTYPE</span><span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">html</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">head</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">meta</span><span style="color:#000000"> </span><span style="color:#ff0000">charset</span><span style="color:#0000ff">=&quot;utf-8&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">/&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">meta</span><span style="color:#000000"> </span><span style="color:#ff0000">name</span><span style="color:#0000ff">=&quot;viewport&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">content</span><span style="color:#0000ff">=&quot;width=device-width&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">/&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">title</span><span style="color:#0000ff">&gt;</span><span style="color:#000000">Tutoriel ASP.NET MVC</span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">title</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">head</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;</span><span style="color:#800000">body</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">&lt;</span><span style="color:#800000">h2</span><span style="color:#0000ff">&gt;</span><span style="color:#000000">Tutoriel ASP.NET MVC</span><span style="color:#0000ff">&lt;/</span><span style="color:#800000">h2</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  @RenderBody()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">body</span><span style="color:#0000ff">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">&lt;/</span><span style="color:#800000">html</span><span style="color:#0000ff">&gt;</span></span></span>
+</code></pre></div>
+
+<p>خط ۹ بخش [2] صفحه را تولید کرد. با این حال، نمای [<bdi dir="ltr" class="odt-ltr-term">Index</bdi>] تنها در خط ۱۰ ظاهر می‌شود.</p>
+<p>اگر کد منبع صفحه دریافتی را مشاهده کنیم، می‌توانیم ببینیم که صفحه [<bdi dir="ltr" class="odt-ltr-term">Index</bdi>] در واقع (در خط ۱۰ زیر) در داخل صفحه [<bdi dir="ltr" class="odt-ltr-term">Layout</bdi>] گنجانده شده است:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Tutoriel ASP.NET MVC<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Tutoriel ASP.NET MVC<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>  <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Vue [Index]...<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>حال بیایید <bdi dir="ltr" class="odt-ltr-term">URL</bdi> و [/<bdi dir="ltr" class="odt-ltr-term">First</bdi>] را امتحان کنیم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000001270000009D2838ADF6.png" width="206" height="110" style="display:inline-block; margin:4px;width:5.459cm;height:2.91cm;" class="odt-zoomable" data-zoom-src="images/10000000000001270000009D2838ADF6.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p><bdi dir="ltr" class="odt-ltr-term">URL</bdi> [/<bdi dir="ltr" class="odt-ltr-term">First</bdi>] ناقص بود. این با استفاده از مقادیر پیش‌فرض مسیر تکمیل شد و به [/<bdi dir="ltr" class="odt-ltr-term">First/Index</bdi>] تبدیل شد. بنابراین ما همان نتیجه قبلی را به دست می‌آوریم.</p>
+<p><span id="refheading58028676630786" name="refheading58028676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="34-contentresult-1">3.4. <span style="color: #4f81bd">اقدامی با نتیجه‌ای از نوع [<bdi dir="ltr" class="odt-ltr-term">ContentResult</bdi>] - 1</span></h2>
+<p>بیایید یک اکشن جدید در کنترلر [<bdi dir="ltr" class="odt-ltr-term">First</bdi>] ایجاد کنیم:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Text;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Mvc;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">namespace</span><span style="color:#000000"> Exemple_01.Controllers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">FirstController</span><span style="color:#000000"> : </span><span style="color:#2b91af">Controller</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// فهرست</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">ViewResult</span><span style="color:#000000"> Index()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> View();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// Action01</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">ContentResult</span><span style="color:#000000"> Action01()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> Content(</span><span style="color:#a31515">&quot;&lt;h1&gt;Action [Action01]&lt;/h1&gt;&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;text/plain&quot;</span><span style="color:#000000">, </span><span style="color:#2b91af">Encoding</span><span style="color:#000000">.UTF8);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>اقدام جدید در خطوط 14–18 تعریف شده است. این اقدام به سادگی با استفاده از متد [<bdi dir="ltr" class="odt-ltr-term">Content</bdi>] (خط 16) از کلاس [<bdi dir="ltr" class="odt-ltr-term">Controller</bdi>] (خط 6) یک رشته را بازمی‌گرداند. پارامترهای این متد عبارتند از:</p>
+<ol>
+  <li>رشتهٔ کاراکتری پاسخ؛
+  </li>
+  <li>یک نشانگر از نوع متن ارسال‌شده: &quot;<bdi dir="ltr" class="odt-ltr-term">text/plain</bdi>&quot;، &quot;<bdi dir="ltr" class="odt-ltr-term">text/html</bdi>&quot;، &quot;<bdi dir="ltr" class="odt-ltr-term">text/xml</bdi>&quot;، ... این شاخص به عنوان نوع <bdi dir="ltr" class="odt-ltr-term">MIME</bdi> (<a href="http://fr.wikipedia.org/wiki/Type_MIME"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">http://fr.wikipedia.org/wiki/Type_MIME</bdi></span></u></a>) شناخته می‌شود؛
+  </li>
+  <li>پارامتر سوم برای مشخص کردن نوع رمزگذاری متن استفاده می‌شود.
+  </li>
+</ol>
+
+<p>به جای استفاده از نوع انتزاعی [<bdi dir="ltr" class="odt-ltr-term">ActionResult</bdi>]، متدهای ما نوع واقعی رندر شده را مشخص می‌کنند (خطوط ۹ و ۱۴). </p>
+<p>بیایید <bdi dir="ltr" class="odt-ltr-term">URL</bdi> را [/<bdi dir="ltr" class="odt-ltr-term">First/Action01</bdi>] بنامیم. صفحه زیر را دریافت می‌کنیم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000001680000007B99162A37.png" width="252" height="86" style="display:inline-block; margin:4px;width:6.669cm;height:2.281cm;" class="odt-zoomable" data-zoom-src="images/10000000000001680000007B99162A37.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p>بیایید کد منبع صفحه دریافت‌شده را بررسی کنیم:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>&lt;h1&gt;Action [Action01]&lt;/h1&gt;
+</code></pre></div></td></tr></table></div>
+<p>مرورگر تنها متنی را که توسط اقدام ارسال شده دریافت کرده و هیچ چیز دیگری نه. این حالت زمانی مفید است که بخواهید داده‌های خام را از سرور وب بدون پوشش <bdi dir="ltr" class="odt-ltr-term">HTML</bdi> درخواست کنید. توجه کنید که مرورگر تگ  را تفسیر نکرد. برای فهمیدن دلیل، بیایید نگاهی به مبادلات <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> در کروم بیندازیم:</p>
+<p>مرورگر سربرگ‌های زیر را ارسال کرد:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">GET</span> <span class="o">/</span><span class="n">First</span><span class="o">/</span><span class="n">Action01</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">Host</span><span class="p">:</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">49302</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="nb">max</span><span class="o">-</span><span class="n">age</span><span class="o">=</span><span class="mi">0</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">Accept</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">Mozilla</span><span class="o">/</span><span class="mf">5.0</span> <span class="p">(</span><span class="n">Windows</span> <span class="n">NT</span> <span class="mf">6.2</span><span class="p">;</span> <span class="n">WOW64</span><span class="p">)</span> <span class="n">AppleWebKit</span><span class="o">/</span><span class="mf">537.36</span> <span class="p">(</span><span class="n">KHTML</span><span class="p">,</span> <span class="n">like</span> <span class="n">Gecko</span><span class="p">)</span> <span class="n">Chrome</span><span class="o">/</span><span class="mf">29.0.1547.76</span> <span class="n">Safari</span><span class="o">/</span><span class="mf">537.36</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span><span class="p">,</span><span class="n">sdch</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="p">:</span> <span class="n">fr</span><span class="o">-</span><span class="n">FR</span><span class="p">,</span><span class="n">fr</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">en</span><span class="o">-</span><span class="n">US</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.4</span>
+</code></pre></div></td></tr></table></div>
+<p>سرور با سربرگ‌های زیر پاسخ داد:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>HTTP/1.1 200 OK
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>Cache-Control: private
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>Content-Type: text/plain; charset=utf-8
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>Content-Encoding: gzip
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>Vary: Accept-Encoding
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>Server: Microsoft-IIS/8.0
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>X-AspNetMvc-Version: 4.0
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>X-AspNet-Version: 4.0.30319
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>X-SourceFiles: =?UTF-8?B?RDpcZGF0YVxpc3RpYS0xMzE0XGFzcG5ldFxkdnBcRXhlbXBsZXNcRXhlbXBsZS0wMVxGaXJzdFxBY3Rpb24wMQ==?=
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>X-Powered-By: ASP.NET
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>Date: Mon, 23 Sep 2013 15:22:33 GMT
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>Content-Length: 141
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>خط ۳: نوع سند را مشخص می‌کند. می‌توانیم ویژگی‌های تنظیم‌شده در روش [<bdi dir="ltr" class="odt-ltr-term">Action01</bdi>] را ببینیم. دلیل اینکه مرورگر تگ  موجود در سند دریافتی را تفسیر نکرد، این است که به آن گفته شده سند از نوع &#x27;<bdi dir="ltr" class="odt-ltr-term">text/plain</bdi>&#x27; است نه &#x27;<bdi dir="ltr" class="odt-ltr-term">text/html</bdi>&#x27;.
+  </li>
+</ul>
+
+<p><span id="refheading58030676630786" name="refheading58030676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="35-contentresult-2">3.5. <span style="color: #4f81bd">اقدامی با نتیجه‌ای از نوع [<bdi dir="ltr" class="odt-ltr-term">ContentResult</bdi>] - 2</span></h2>
+<p>بیایید اقدام سوم زیر را در نظر بگیریم:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Text;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Mvc;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">namespace</span><span style="color:#000000"> Exemple_01.Controllers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">FirstController</span><span style="color:#000000"> : </span><span style="color:#2b91af">Controller</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">   ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// Action02</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">ContentResult</span><span style="color:#000000"> Action02()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">string</span><span style="color:#000000"> data = </span><span style="color:#a31515">&quot;&lt;action&gt;&lt;name&gt;Action02&lt;/name&gt;&lt;description&gt;renvoie un texte XML&lt;/description&gt;&lt;/action&gt;&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> Content(data, </span><span style="color:#a31515">&quot;text/xml&quot;</span><span style="color:#000000">, </span><span style="color:#2b91af">Encoding</span><span style="color:#000000">.UTF8);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>خط ۱۲: ما یک متن <bdi dir="ltr" class="odt-ltr-term">XML</bdi> را تعریف می‌کنیم؛
+  </li>
+  <li>خط ۱۳: این به مرورگر ارسال می‌شود و مشخص می‌کند که <bdi dir="ltr" class="odt-ltr-term">XML</bdi> با نوع <bdi dir="ltr" class="odt-ltr-term">MIME</bdi> &quot;<bdi dir="ltr" class="odt-ltr-term">text/xml</bdi>&quot; است.
+  </li>
+</ul>
+
+<p>در مرورگر، صفحه زیر نمایش داده می‌شود:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000002BE000000B7B494D346.png" width="491" height="128" style="display:inline-block; margin:4px;width:13cm;height:3.39cm;" class="odt-zoomable" data-zoom-src="images/10000000000002BE000000B7B494D346.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p>بیایید پاسخ <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> سرور را در کروم بررسی کنیم:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>HTTP/1.1 200 OK
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>Cache-Control: private
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>Content-Type: text/xml; charset=utf-8
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>Content-Encoding: gzip
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>Vary: Accept-Encoding
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>Server: Microsoft-IIS/8.0
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>X-AspNetMvc-Version: 4.0
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>X-AspNet-Version: 4.0.30319
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>X-SourceFiles: =?UTF-8?B?RDpcZGF0YVxpc3RpYS0xMzE0XGFzcG5ldFxkdnBcRXhlbXBsZXNcRXhlbXBsZS0wMVxGaXJzdFxBY3Rpb24wMg==?=
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>X-Powered-By: ASP.NET
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>Date: Mon, 23 Sep 2013 15:29:34 GMT
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>Content-Length: 176
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>خط ۳: نوع سند را مشخص می‌کند. ما می‌توانیم ویژگی‌های تنظیم‌شده در متد [<bdi dir="ltr" class="odt-ltr-term">Action02</bdi>] را ببینیم؛
+  </li>
+  <li>خط ۱۲: اندازه سند ارسال‌شده توسط سرور به بایت.
+  </li>
+</ul>
+
+<p>سند ارسال‌شده توسط سرور به شرح زیر است (تصویر صفحهٔ کروم):</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000002760000005B81C3C0C6.png" width="520" height="75" style="display:inline-block; margin:4px;width:13.771cm;height:1.988cm;" class="odt-zoomable" data-zoom-src="images/10000000000002760000005B81C3C0C6.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p><span id="refheading58032676630786" name="refheading58032676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="36-jsonresult">3.6. <span style="color: #4f81bd">اقدامی با نتیجه از نوع [<bdi dir="ltr" class="odt-ltr-term">JsonResult</bdi>]</span></h2>
+<p>بیایید اقدام زیر را به کنترلر [<bdi dir="ltr" class="odt-ltr-term">First</bdi>] اضافه کنیم:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// Action03</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">JsonResult</span><span style="color:#000000"> Action03()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">dynamic</span><span style="color:#000000"> personne = </span><span style="color:#0000ff">new</span><span style="color:#000000"> </span><span style="color:#2b91af">ExpandoObject</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      personne.nom = </span><span style="color:#a31515">&quot;someone&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      personne.age = 20;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> Json(personne,</span><span style="color:#2b91af">JsonRequestBehavior</span><span style="color:#000000">.AllowGet);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>خط ۴: یک متغیر از نوع <bdi dir="ltr" class="odt-ltr-term">dynamic.</bdi> در زمان اجرا، می‌توان به راحتی به چنین متغیری ویژگی افزود. ویژگی همزمان با مقداردهی اولیه ایجاد می‌شود؛
+  </li>
+  <li>خطوط ۵–۶: دو ویژگی، nom و age، مقداردهی اولیه می‌شوند؛
+  </li>
+  <li>خط ۷: نمای <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> (نمایش شیء در جاوااسکریپت) شیء را بازمی‌گرداند. <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> امکان سریال‌سازی یک شیء به یک رشته و بالعکس، دسریال‌سازی یک رشته به یک شیء را فراهم می‌کند. این جایگزین روش سریال‌سازی/دسریال‌سازی <bdi dir="ltr" class="odt-ltr-term">XML</bdi> است؛
+  </li>
+  <li>خط ۲: این عمل یک نوع [<bdi dir="ltr" class="odt-ltr-term">JsonResult</bdi>] را بازمی‌گرداند. این نوع تنها در پاسخ به یک درخواست <bdi dir="ltr" class="odt-ltr-term">POST</bdi> قابل بازگشت است. اگر می‌خواهید آن را برای متد <bdi dir="ltr" class="odt-ltr-term">GET</bdi> بازگردانید، باید پارامتر دوم سازنده کلاس <bdi dir="ltr" class="odt-ltr-term">Json</bdi> (خط ۷) را روی مقدار <span style="color: #2b91af"><bdi dir="ltr" class="odt-ltr-term">JsonRequestBehavior.AllowGet</bdi></span> تنظیم کنید.
+  </li>
+</ul>
+
+<p>هنگام درخواست <bdi dir="ltr" class="odt-ltr-term">URL</bdi> [/<bdi dir="ltr" class="odt-ltr-term">First/Action03</bdi>]، مرورگر موارد زیر را نمایش می‌دهد:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000001DA000000766AC21245.png" width="332" height="83" style="display:inline-block; margin:4px;width:8.781cm;height:2.191cm;" class="odt-zoomable" data-zoom-src="images/10000000000001DA000000766AC21245.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p>پاسخ سرور، <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi>، به شرح زیر است:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>HTTP/1.1 200 OK
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>Cache-Control: private
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>Content-Type: application/json; charset=utf-8
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>Server: Microsoft-IIS/8.0
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>X-AspNetMvc-Version: 4.0
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>X-AspNet-Version: 4.0.30319
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>X-SourceFiles: =?UTF-8?B?RDpcZGF0YVxpc3RpYS0xMzE0XGFzcG5ldFxkdnBcRXhlbXBsZXNcRXhlbXBsZS0wMVxGaXJzdFxBY3Rpb24wMw==?=
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>X-Powered-By: ASP.NET
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>Date: Mon, 23 Sep 2013 15:48:53 GMT
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>Content-Length: 58
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>خط ۳: مشخص می‌کند که سند ارسالی <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> است؛
+  </li>
+  <li>خط ۱۰: سند ارسالی ۵۸ بایت طول دارد. به شرح زیر است:
+  </li>
+</ul>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[{&quot;Key&quot;:&quot;nom&quot;,&quot;Value&quot;:&quot;someone&quot;},{&quot;Key&quot;:&quot;age&quot;,&quot;Value&quot;:20}]
+</code></pre></div>
+<p>عنصر پویا [<bdi dir="ltr" class="odt-ltr-term">personne</bdi>] از دیدگاه <bdi dir="ltr" class="odt-ltr-term">JSON</bdi> به صورت آرایه‌ای از فرهنگ‌لغت‌ها در نظر گرفته می‌شود، که در آن هر فرهنگ‌لغت:</p>
+<ul>
+  <li>مطابقت دارد با یک فیلد در متغیر [<bdi dir="ltr" class="odt-ltr-term">personne</bdi>];
+  </li>
+  <li>دو کلید دارد: «<bdi dir="ltr" class="odt-ltr-term">Key</bdi>» و «<bdi dir="ltr" class="odt-ltr-term">Value</bdi>». مقدار مرتبط با «<bdi dir="ltr" class="odt-ltr-term">Key</bdi>» نام فیلد و مقدار مرتبط با «<bdi dir="ltr" class="odt-ltr-term">Value</bdi>» مقدار فیلد است.
+  </li>
+</ul>
+
+<p><span id="refheading58034676630786" name="refheading58034676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="37-string">3.7. <span style="color: #4f81bd">اقدامی با نتیجه‌ای از نوع [<bdi dir="ltr" class="odt-ltr-term">string</bdi>]</span></h2>
+<p>بیایید اقدام زیر را به کنترلر [<bdi dir="ltr" class="odt-ltr-term">First</bdi>] اضافه کنیم:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// اقدام ۰۴</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#0000ff">string</span><span style="color:#000000"> Action04()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#a31515">&quot;&lt;h3&gt;Contrôleur=First, Action=Action04&lt;/h3&gt;&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>وقتی <bdi dir="ltr" class="odt-ltr-term">URL</bdi> [/<bdi dir="ltr" class="odt-ltr-term">First/Action04</bdi>] را با کروم درخواست می‌کنیم، پاسخ زیر را دریافت می‌کنیم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/100000000000016D000000769909198B.png" width="255" height="83" style="display:inline-block; margin:4px;width:6.759cm;height:2.191cm;" class="odt-zoomable" data-zoom-src="images/100000000000016D000000769909198B.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p>می‌توانیم ببینیم که تگ  تفسیر شده است. بیایید نگاهی به پاسخ سرور <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> بیندازیم:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>HTTP/1.1 200 OK
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>Cache-Control: private
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>Content-Type: text/html; charset=utf-8
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>Content-Encoding: gzip
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>Vary: Accept-Encoding
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>Server: Microsoft-IIS/8.0
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>X-AspNetMvc-Version: 4.0
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>X-AspNet-Version: 4.0.30319
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>X-SourceFiles: =?UTF-8?B?RDpcZGF0YVxpc3RpYS0xMzE0XGFzcG5ldFxkdnBcRXhlbXBsZXNcRXhlbXBsZS0wMVxGaXJzdFxBY3Rpb24wNA==?=
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>X-Powered-By: ASP.NET
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>Date: Tue, 24 Sep 2013 07:49:00 GMT
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>Content-Length: 156
+</code></pre></div></td></tr></table></div>
+<p>و سند زیر:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&lt;h3&gt;Contrôleur=First, Action=Action04&lt;/h3&gt;
+</code></pre></div>
+<p>در خط ۳، می‌بینیم که سرور اشاره کرده است که متنی را در قالب <bdi dir="ltr" class="odt-ltr-term">HTML</bdi> ارسال می‌کند. به همین دلیل است که مرورگر تگ  را تفسیر کرد. بنابراین، هنگامی که می‌خواهید متن ساده ارسال کنید، ترجیحاً باید یک [<bdi dir="ltr" class="odt-ltr-term">ContentResult</bdi>] بازگردانید تا یک [<bdi dir="ltr" class="odt-ltr-term">string</bdi>]. فرمت [<bdi dir="ltr" class="odt-ltr-term">ContentResult</bdi>] به ما امکان می‌دهد نوع <bdi dir="ltr" class="odt-ltr-term">MIME</bdi> «<bdi dir="ltr" class="odt-ltr-term">text/plain</bdi>» (<bdi dir="ltr" class="odt-ltr-term">MIME</bdi>) را مشخص کنیم تا نشان دهیم در حال ارسال متن بدون قالب‌بندی هستیم، که مرورگر تلاش نخواهد کرد آن را تفسیر کند.</p>
+<p><span id="refheading58036676630786" name="refheading58036676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="38-emptyresult">3.8. <span style="color: #4f81bd">عملی با نتیجه‌ای از نوع [<bdi dir="ltr" class="odt-ltr-term">EmptyResult</bdi>]</span></h2>
+<p>عمل جدید زیر را در نظر بگیرید:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// Action05</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">EmptyResult</span><span style="color:#000000"> Action05()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#0000ff">new</span><span style="color:#000000"> </span><span style="color:#2b91af">EmptyResult</span><span style="color:#000000">();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>این اقدام به سادگی یک نوع [<bdi dir="ltr" class="odt-ltr-term">EmptyResult</bdi>] را بازمی‌گرداند. در این مورد، سرور یک پاسخ خالی به کلاینت ارسال می‌کند، همانطور که در پاسخ آن <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> نشان داده شده است:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">8</a></span>
+<span class="normal"><a href="#__codelineno-9-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>HTTP/1.1 200 OK
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>Cache-Control: private
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>Server: Microsoft-IIS/8.0
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>X-AspNetMvc-Version: 4.0
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>X-AspNet-Version: 4.0.30319
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>X-SourceFiles: =?UTF-8?B?RDpcZGF0YVxpc3RpYS0xMzE0XGFzcG5ldFxkdnBcRXhlbXBsZXNcRXhlbXBsZS0wMVxGaXJzdFxBY3Rpb24wNQ==?=
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>X-Powered-By: ASP.NET
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>Date: Tue, 24 Sep 2013 08:11:12 GMT
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>Content-Length: 0
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>خط ۹: سرور به کلاینت خود اطلاع می‌دهد که یک سند خالی ارسال می‌کند.
+  </li>
+</ul>
+
+<p><span id="refheading58038676630786" name="refheading58038676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="39-redirectresult-1">3.9. <span style="color: #4f81bd">عمل با نتیجه‌ای از نوع [<bdi dir="ltr" class="odt-ltr-term">RedirectResult</bdi>] - 1</span></h2>
+<p>عمل جدید زیر را در نظر بگیرید:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// اقدام06</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">RedirectResult</span><span style="color:#000000"> Action06()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#0000ff">new</span><span style="color:#000000"> </span><span style="color:#2b91af">RedirectResult</span><span style="color:#000000">(</span><span style="color:#a31515">&quot;/First/Action05&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>این عمل یک نوع [<bdi dir="ltr" class="odt-ltr-term">RedirectResult</bdi>] را بازمی‌گرداند. این نوع برای ارسال یک دستور هدایت به مشتری به پارامتر سازنده <bdi dir="ltr" class="odt-ltr-term">URL</bdi> (خط ۴) استفاده می‌شود. سپس کلاینت یک درخواست جدید، <bdi dir="ltr" class="odt-ltr-term">GET</bdi>، را به [/<bdi dir="ltr" class="odt-ltr-term">First/Action05</bdi>] ارسال می‌کند. بنابراین کلاینت در مجموع دو درخواست ارسال می‌کند. </p>
+<p>مرورگر نتیجه درخواست دوم را نمایش می‌دهد:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/100000000000016E0000007EE49A70A7.png" width="256" height="88" style="display:inline-block; margin:4px;width:6.78cm;height:2.33cm;" class="odt-zoomable" data-zoom-src="images/100000000000016E0000007EE49A70A7.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p>بیایید پاسخ سرور <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> را در کروم بررسی کنیم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000000A1000000C0DD2AF862.png" width="113" height="135" style="display:inline-block; margin:4px;width:2.979cm;height:3.56cm;" class="odt-zoomable" data-zoom-src="images/10000000000000A1000000C0DD2AF862.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p>همان‌طور که در بالا نشان داده شده است، این‌ها دو درخواست از مرورگر هستند. بیایید اولین درخواست، [<bdi dir="ltr" class="odt-ltr-term">Action06</bdi>] را بررسی کنیم. پاسخ سرور، <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi>، به شرح زیر است:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>HTTP/1.1 302 Found
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>Cache-Control: private
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>Content-Type: text/html; charset=utf-8
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>Location: /First/Action05
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>Server: Microsoft-IIS/8.0
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>X-AspNetMvc-Version: 4.0
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>X-AspNet-Version: 4.0.30319
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>X-SourceFiles: =?UTF-8?B?RDpcZGF0YVxpc3RpYS0xMzE0XGFzcG5ldFxkdnBcRXhlbXBsZXNcRXhlbXBsZS0wMVxGaXJzdFxBY3Rpb24wNg==?=
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>X-Powered-By: ASP.NET
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>Date: Tue, 24 Sep 2013 08:16:59 GMT
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>Content-Length: 132
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>خط ۱: سرور با کد وضعیت 302 <bdi dir="ltr" class="odt-ltr-term">Found</bdi> پاسخ داده است. قبلاً، این کد 200 <bdi dir="ltr" class="odt-ltr-term">OK</bdi> بود که به معنای یافتن سند درخواست‌شده است. کد 302 نشان می‌دهد که یک هدایت (<bdi dir="ltr" class="odt-ltr-term">redirect</bdi>) لازم است. آدرس هدایت در خط ۴ داده شده است. این آدرس با آدرسی که ما در کد اقدام مشخص کرده بودیم مطابقت دارد؛
+  </li>
+  <li>خط ۱۱: سرور نشان می‌دهد که با پاسخ خود <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi>، در حال ارسال یک سند از نوع <bdi dir="ltr" class="odt-ltr-term">text/html</bdi> (خط ۳) با اندازه‌ای برابر با ۱۳۲ بایت (خط ۱۱) است. وقتی پاسخ به درخواست [<bdi dir="ltr" class="odt-ltr-term">Action06</bdi>] را در کروم بررسی می‌کنیم، خالی است، همان‌طور که انتظار می‌رود. احتمالاً توضیحی برای این موضوع وجود دارد، اما من نمی‌دانم چیست.
+  </li>
+</ul>
+
+<p>به دلیل تغییر مسیر، مرورگر یک درخواست جدید، <bdi dir="ltr" class="odt-ltr-term">GET</bdi>، به <bdi dir="ltr" class="odt-ltr-term">URL</bdi> که در خط ۴ بالا مشخص شده است، ارسال می‌کند، همانطور که در خط ۱ زیر در کروم قابل مشاهده است:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span>
+<span class="normal"><a href="#__codelineno-11-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">GET</span> <span class="o">/</span><span class="n">First</span><span class="o">/</span><span class="n">Action05</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">Host</span><span class="p">:</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">49302</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">Accept</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">Mozilla</span><span class="o">/</span><span class="mf">5.0</span> <span class="p">(</span><span class="n">Windows</span> <span class="n">NT</span> <span class="mf">6.2</span><span class="p">;</span> <span class="n">WOW64</span><span class="p">)</span> <span class="n">AppleWebKit</span><span class="o">/</span><span class="mf">537.36</span> <span class="p">(</span><span class="n">KHTML</span><span class="p">,</span> <span class="n">like</span> <span class="n">Gecko</span><span class="p">)</span> <span class="n">Chrome</span><span class="o">/</span><span class="mf">29.0.1547.76</span> <span class="n">Safari</span><span class="o">/</span><span class="mf">537.36</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span><span class="p">,</span><span class="n">sdch</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="p">:</span> <span class="n">fr</span><span class="o">-</span><span class="n">FR</span><span class="p">,</span><span class="n">fr</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">en</span><span class="o">-</span><span class="n">US</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.4</span>
+</code></pre></div></td></tr></table></div>
+<p><span id="refheading58040676630786" name="refheading58040676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="310-redirectresult-2">3.10. <span style="color: #4f81bd">عملی با نتیجه‌ای از نوع [<bdi dir="ltr" class="odt-ltr-term">RedirectResult</bdi>] - 2</span></h2>
+<p>بیایید اقدام جدید زیر را در نظر بگیریم:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// Action07</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">RedirectResult</span><span style="color:#000000"> Action07()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#0000ff">new</span><span style="color:#000000"> </span><span style="color:#2b91af">RedirectResult</span><span style="color:#000000">(</span><span style="color:#a31515">&quot;/First/Action05&quot;</span><span style="color:#000000">,</span><span style="color:#0000ff">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>در خط ۴، یک پارامتر دوم از نوع [<bdi dir="ltr" class="odt-ltr-term">RedirectResult</bdi>] به سازنده اضافه شده است. این یک مقدار بولی است که به طور پیش‌فرض روی <bdi dir="ltr" class="odt-ltr-term">false</bdi> تنظیم شده است. وقتی این مقدار روی <bdi dir="ltr" class="odt-ltr-term">true</bdi> تنظیم شود، پاسخ <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> که به کلاینت ارسال می‌شود تغییر می‌کند. به این صورت درمی‌آید:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>HTTP/1.1 301 Moved Permanently
+</code></pre></div>
+<p>بنابراین، کد پاسخ ارسال‌شده به کلاینت اکنون 301 <bdi dir="ltr" class="odt-ltr-term">Moved Permanently</bdi> (موقتاً جابجا شده به طور دائم) است. هدایت همانند قبل انجام می‌شود، اما مشخص می‌شود که این هدایت دائمی است. این امر به موتورهای جستجو اجازه می‌دهد تا <bdi dir="ltr" class="odt-ltr-term">URL</bdi> قدیمی را در نتایج خود با نسخه جدید جایگزین کنند.</p>
+<p><span id="refheading58042676630786" name="refheading58042676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="311-redirecttorouteresult">3.11. <span style="color: #4f81bd">اقدامی با نتیجه از نوع [<bdi dir="ltr" class="odt-ltr-term">RedirectToRouteResult</bdi>]</span></h2>
+<p>اقدام جدید زیر را انجام دهید:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// Action08</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">RedirectToRouteResult</span><span style="color:#000000"> Action08()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#0000ff">new</span><span style="color:#000000"> </span><span style="color:#2b91af">RedirectToRouteResult</span><span style="color:#000000">(</span><span style="color:#a31515">&quot;Default&quot;</span><span style="color:#000000">,</span><span style="color:#0000ff">new</span><span style="color:#000000"> </span><span style="color:#2b91af">RouteValueDictionary</span><span style="color:#000000">(</span><span style="color:#0000ff">new</span><span style="color:#000000"> {controller=</span><span style="color:#a31515">&quot;First&quot;</span><span style="color:#000000">,action=</span><span style="color:#a31515">&quot;Action05&quot;</span><span style="color:#000000">}));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>خط ۲: عمل یک نوع [<bdi dir="ltr" class="odt-ltr-term">RedirectToRouteResult</bdi>] را بازمی‌گرداند. این نوع به کلاینت اجازه می‌دهد تا به یک <bdi dir="ltr" class="odt-ltr-term">URL</bdi> مشخص‌شده نه با یک رشته کاراکتری مانند قبل، بلکه با یک مسیر، هدایت شود.
+  </li>
+</ul>
+
+<p>مسیرها در [<bdi dir="ltr" class="odt-ltr-term">App</bdi>_Start/<bdi dir="ltr" class="odt-ltr-term">RouteConfig</bdi>] تعریف شده‌اند. در حال حاضر تنها یک مورد وجود دارد:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">      routes.MapRoute(</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          name: </span><span style="color:#a31515">&quot;Default&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          url: </span><span style="color:#a31515">&quot;{controller}/{action}/{id}&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          defaults: </span><span style="color:#0000ff">new</span><span style="color:#000000"> { controller = </span><span style="color:#a31515">&quot;Home&quot;</span><span style="color:#000000">, action = </span><span style="color:#a31515">&quot;Index&quot;</span><span style="color:#000000">, id = </span><span style="color:#2b91af">UrlParameter</span><span style="color:#000000">.Optional }</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">);</span></span>
+</code></pre></div>
+
+<ul>
+  <li>در خط ۴، به کلاینت دستور داده می‌شود که به مسیر با نام [<bdi dir="ltr" class="odt-ltr-term">Default</bdi>] با متغیر `<bdi dir="ltr" class="odt-ltr-term">controller</bdi>=<bdi dir="ltr" class="odt-ltr-term">First</bdi>` و متغیر <b>`</b><bdi dir="ltr" class="odt-ltr-term">action</bdi>=<bdi dir="ltr" class="odt-ltr-term">Action05</bdi>` هدایت (<bdi dir="ltr" class="odt-ltr-term">redirect</bdi>) شود. سیستم مسیریابی سپس مسیر هدایت <bdi dir="ltr" class="odt-ltr-term">URL</bdi> را از /<bdi dir="ltr" class="odt-ltr-term">First/Action05</bdi> تولید می‌کند. این موضوع در پاسخ سرور <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> نشان داده شده است:
+  </li>
+</ul>
+
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>HTTP/1.1 302 Found
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>Cache-Control: private
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>Content-Type: text/html; charset=utf-8
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>Location: /First/Action05
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>Server: Microsoft-IIS/8.0
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>X-AspNetMvc-Version: 4.0
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>X-AspNet-Version: 4.0.30319
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>X-SourceFiles: =?UTF-8?B?RDpcZGF0YVxpc3RpYS0xMzE0XGFzcG5ldFxkdnBcRXhlbXBsZXNcRXhlbXBsZS0wMVxGaXJzdFxBY3Rpb24wOA==?=
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>X-Powered-By: ASP.NET
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>Date: Tue, 24 Sep 2013 08:58:19 GMT
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>Content-Length: 132
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>خط ۱: هدایت مجدد؛
+  </li>
+  <li>خط ۴: آدرس هدایت تولیدشده توسط سیستم مسیریابی <bdi dir="ltr" class="odt-ltr-term">URL.</bdi>
+  </li>
+</ul>
+
+<p><span id="refheading58044676630786" name="refheading58044676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="312-void">3.12. <span style="color: #4f81bd">عملی با نتیجه‌ای از نوع [<bdi dir="ltr" class="odt-ltr-term">void</bdi>]</span></h2>
+<p>عمل جدید به شرح زیر باشد:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// Action09</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#0000ff">void</span><span style="color:#000000"> Action09()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">string</span><span style="color:#000000"> nom = Request.QueryString[</span><span style="color:#a31515">&quot;nom&quot;</span><span style="color:#000000">] ?? </span><span style="color:#a31515">&quot;inconnu&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      Response.AddHeader(</span><span style="color:#a31515">&quot;Content-Type&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;text/plain&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      Response.Write(</span><span style="color:#0000ff">string</span><span style="color:#000000">.Format(</span><span style="color:#a31515">&quot;&lt;h3&gt;Action09&lt;/h3&gt;nom={0}&quot;</span><span style="color:#000000">, nom));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>خط ۲: عمل هیچ نتیجه‌ای بر نمی‌گرداند. این مستقیماً در جریان پاسخ ارسال‌شده به کلاینت نوشته می‌شود؛
+  </li>
+  <li>خط ۴: هر پارامتری با نام [nom] از درخواست بازیابی می‌شود. این از طریق خاصیت [<bdi dir="ltr" class="odt-ltr-term">Request</bdi>] کنترل‌کننده [<bdi dir="ltr" class="odt-ltr-term">Controller</bdi>]، که کنترل‌کننده [<bdi dir="ltr" class="odt-ltr-term">First</bdi>] از آن ارث می‌برد، قابل دسترسی است. پارامتر [nom] که در قالب [/<bdi dir="ltr" class="odt-ltr-term">First/Action09</bdi>?nom=<bdi dir="ltr" class="odt-ltr-term">quelquechose</bdi>] ارسال شده است، در <b><bdi dir="ltr" class="odt-ltr-term">Request.QueryString</bdi>[&quot;nom&quot;]</b> در دسترس است. نحو خط ۴ معادل است با:
+  </li>
+</ul>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>string<span class="w"> </span><span class="nv">nom</span><span class="o">=</span>Request.QueryString<span class="o">[</span><span class="s2">&quot;nom&quot;</span><span class="o">]</span><span class="p">;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">if</span><span class="o">(</span><span class="nv">nom</span><span class="o">==</span>null<span class="o">){</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="nv">nom</span><span class="o">=</span><span class="s2">&quot;inconnu&quot;</span><span class="p">;</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="o">}</span>
+</code></pre></div>
+<ul>
+  <li>خط ۵: پاسخ ارسال‌شده به کلاینت از طریق خاصیت [<bdi dir="ltr" class="odt-ltr-term">Response</bdi>] کنترل‌کننده [<bdi dir="ltr" class="odt-ltr-term">Controller</bdi>]، که کنترل‌کننده [<bdi dir="ltr" class="odt-ltr-term">First</bdi>] از آن ارث می‌برد، قابل دسترسی است؛
+  </li>
+  <li>خط ۵: هدر <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> [<bdi dir="ltr" class="odt-ltr-term">Content-Type</bdi>] تنظیم می‌شود که نوع سندی را مشخص می‌کند که سرور قصد ارسال آن را به کلاینت دارد. در اینجا، &#x27;<bdi dir="ltr" class="odt-ltr-term">text/plain</bdi>&#x27; نشان می‌دهد که سند یک متن ساده است که نباید توسط مرورگر تفسیر شود؛
+  </li>
+  <li>خط ۶: یک رشته از کاراکترها در جریان پاسخ نوشته می‌شود. این شامل برچسب‌های <bdi dir="ltr" class="odt-ltr-term">HTML</bdi> است که نباید توسط مرورگر تفسیر شوند، زیرا مرورگر قبلاً هدر <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> [<bdi dir="ltr" class="odt-ltr-term">Content-Type : text/plain</bdi>&quot;] را دریافت کرده است. این همان چیزی است که می‌خواهیم بررسی کنیم.
+  </li>
+</ul>
+
+<p>بیایید پروژه را کامپایل کرده و <bdi dir="ltr" class="odt-ltr-term">URL</bdi> [/<bdi dir="ltr" class="odt-ltr-term">First/Action09</bdi>?nom=<bdi dir="ltr" class="odt-ltr-term">someone</bdi> ][1] را درخواست کنیم، سپس<bdi dir="ltr" class="odt-ltr-term">URL</bdi> [/<bdi dir="ltr" class="odt-ltr-term">First/Action09</bdi> ] [2]:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000005FC000000F0C6E72D5F.png" width="680" height="107" style="display:inline-block; margin:4px;width:17.999cm;height:2.819cm;" class="odt-zoomable" data-zoom-src="images/10000000000005FC000000F0C6E72D5F.png" /></td></tr></table>
+
+<p>حال پاسخ سرور، <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi>، را در کروم بررسی می‌کنیم:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>HTTP/1.1 200 OK
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>Cache-Control: private
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>Content-Type: text/plain; charset=utf-8
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>...
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>Content-Length: 144
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>خط ۳: ما هدر <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> را می‌بینیم که خودمان در کد اکشن آن را تنظیم کرده‌ایم.
+  </li>
+</ul>
+
+<p><span id="refheading58046676630786" name="refheading58046676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="313">3.13. <span style="color: #4f81bd">یک کنترلر دوم</span></h2>
+<p>بیایید یک کنترلر دوم در پروژه ایجاد کنیم. ما روش توصیف‌شده در بخش <a href="#refheading10128914791633"><u><span style="color: #0563c1">۳.۱</span></u></a>، صفحهٔ <a href="#refheading10128914791633"><u><span style="color: #0563c1">۴۰</span></u></a> را دنبال خواهیم کرد. آن را [<bdi dir="ltr" class="odt-ltr-term">Second</bdi>] نام‌گذاری خواهیم کرد.</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000000C50000006F78BB882F.png" width="138" height="77" style="display:inline-block; margin:4px;width:3.649cm;height:2.05cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C50000006F78BB882F.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p>کد تولیدشده آن به شرح زیر است:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">namespace</span><span style="color:#000000"> Exemple_01.Controllers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">SecondController</span><span style="color:#000000"> : </span><span style="color:#2b91af">Controller</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">//</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// GET: /Second/</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">ActionResult</span><span style="color:#000000"> Index()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> View();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>بیایید آن را به شرح زیر اصلاح کنیم:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Text;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">using</span><span style="color:#000000"> System.Web.Mvc;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">namespace</span><span style="color:#000000"> Exemple_01.Controllers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">SecondController</span><span style="color:#000000"> : </span><span style="color:#2b91af">Controller</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// /Second/Action01</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">ContentResult</span><span style="color:#000000"> Action01()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> Content(</span><span style="color:#a31515">&quot;Contrôleur=Second, Action=Action01&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;text/plain&quot;</span><span style="color:#000000">, </span><span style="color:#2b91af">Encoding</span><span style="color:#000000">.UTF8);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>سپس با استفاده از یک مرورگر وب، <bdi dir="ltr" class="odt-ltr-term">URL</bdi> و [/<bdi dir="ltr" class="odt-ltr-term">Second/Action01</bdi>] را درخواست می‌کنیم. پاسخ زیر را دریافت می‌کنیم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000001840000007C98FE446F.png" width="271" height="87" style="display:inline-block; margin:4px;width:7.181cm;height:2.3cm;" class="odt-zoomable" data-zoom-src="images/10000000000001840000007C98FE446F.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p>این <bdi dir="ltr" class="odt-ltr-term">URL</bdi> با استفاده از دستور <bdi dir="ltr" class="odt-ltr-term">HTTP GET</bdi> درخواست شده است، همانطور که در لاگ‌های درخواست در کروم نشان داده شده است:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>GET /Second/Action01 HTTP/1.1
+</code></pre></div>
+<p><bdi dir="ltr" class="odt-ltr-term">URL</bdi> را می‌توان با استفاده از دستورات <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> و <bdi dir="ltr" class="odt-ltr-term">POST</bdi> نیز درخواست کرد. برای نمایش این موضوع، بیایید دوباره از برنامه [<bdi dir="ltr" class="odt-ltr-term">Advanced Rest Client</bdi>] استفاده کنیم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000005FB00000180482AEB96.png" width="680" height="171" style="display:inline-block; margin:4px;width:17.999cm;height:4.514cm;" class="odt-zoomable" data-zoom-src="images/10000000000005FB00000180482AEB96.png" /></td></tr></table>
+
+<ul>
+  <li>در [1]، برنامه را اجرا کنید (در زبانه [<bdi dir="ltr" class="odt-ltr-term">Applications</bdi>] یک زبانه کروم جدید)؛
+  </li>
+  <li>در [2]، گزینه [<bdi dir="ltr" class="odt-ltr-term">Request</bdi>] را انتخاب کنید؛
+  </li>
+  <li>در [3]، <bdi dir="ltr" class="odt-ltr-term">URL</bdi> درخواستی را مشخص کنید؛
+  </li>
+  <li>در [4]، مشخص کنید که <bdi dir="ltr" class="odt-ltr-term">URL</bdi> باید با <bdi dir="ltr" class="odt-ltr-term">POST</bdi> درخواست شود؛
+  </li>
+</ul>
+
+<p>لاگ‌های کروم با استفاده از (<bdi dir="ltr" class="odt-ltr-term">CTRL-I</bdi>) برای دریافت پاسخ سرور <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> فعال می‌شوند. وقتی [<bdi dir="ltr" class="odt-ltr-term">Send</bdi>] پس از درخواست قبلی اجرا می‌شود، مبادلات <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> به شرح زیر است:</p>
+<p>مرورگر درخواست زیر را ارسال می‌کند:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">POST</span> <span class="o">/</span><span class="n">Second</span><span class="o">/</span><span class="n">Action01</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">Host</span><span class="p">:</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">49302</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">0</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="n">Origin</span><span class="p">:</span> <span class="n">chrome</span><span class="o">-</span><span class="n">extension</span><span class="p">:</span><span class="o">//</span><span class="n">hgmloofddffdnphfgcellkdfbfbjeloo</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">Mozilla</span><span class="o">/</span><span class="mf">5.0</span> <span class="p">(</span><span class="n">Windows</span> <span class="n">NT</span> <span class="mf">6.2</span><span class="p">;</span> <span class="n">WOW64</span><span class="p">)</span> <span class="n">AppleWebKit</span><span class="o">/</span><span class="mf">537.36</span> <span class="p">(</span><span class="n">KHTML</span><span class="p">,</span> <span class="n">like</span> <span class="n">Gecko</span><span class="p">)</span> <span class="n">Chrome</span><span class="o">/</span><span class="mf">29.0.1547.76</span> <span class="n">Safari</span><span class="o">/</span><span class="mf">537.36</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="n">Accept</span><span class="p">:</span> <span class="o">*/*</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span><span class="p">,</span><span class="n">sdch</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Language</span><span class="p">:</span> <span class="n">fr</span><span class="o">-</span><span class="n">FR</span><span class="p">,</span><span class="n">fr</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">en</span><span class="o">-</span><span class="n">US</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.4</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>خط ۱: <bdi dir="ltr" class="odt-ltr-term">URL</bdi> در واقع با یک <bdi dir="ltr" class="odt-ltr-term">POST</bdi> درخواست می‌شود؛
+  </li>
+  <li>خط ۴: اندازه بایت‌های عناصر ارسال‌شده. در اینجا هیچ‌کدام وجود ندارد.
+  </li>
+</ul>
+
+<p>پاسخ سرور، <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi>، به شرح زیر است:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-18-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-18-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-18-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-18-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-18-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-18-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-18-10">10</a></span>
+<span class="normal"><a href="#__codelineno-18-11">11</a></span>
+<span class="normal"><a href="#__codelineno-18-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>HTTP/1.1 200 OK
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>Cache-Control: private
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>Content-Type: text/plain; charset=utf-8
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a>Content-Encoding: gzip
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a>Vary: Accept-Encoding
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a>Server: Microsoft-IIS/8.0
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a>X-AspNetMvc-Version: 4.0
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a>X-AspNet-Version: 4.0.30319
+<a id="__codelineno-18-9" name="__codelineno-18-9"></a>X-SourceFiles: =?UTF-8?B?RDpcZGF0YVxpc3RpYS0xMzE0XGFzcG5ldFxkdnBcRXhlbXBsZXNcRXhlbXBsZS0wMVxTZWNvbmRcQWN0aW9uMDE=?=
+<a id="__codelineno-18-10" name="__codelineno-18-10"></a>X-Powered-By: ASP.NET
+<a id="__codelineno-18-11" name="__codelineno-18-11"></a>Date: Tue, 24 Sep 2013 10:47:59 GMT
+<a id="__codelineno-18-12" name="__codelineno-18-12"></a>Content-Length: 148
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>خط ۳: سرور یک سند متنی بدون قالب‌بندی (ساده) ارسال می‌کند؛
+  </li>
+  <li>خط ۱۲: ۱۴۸ کاراکتر طول دارد.
+  </li>
+</ul>
+
+<p>سند ارسال‌شده به شرح زیر است:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000001170000006643970F20.png" width="195" height="71" style="display:inline-block; margin:4px;width:5.159cm;height:1.891cm;" class="odt-zoomable" data-zoom-src="images/10000000000001170000006643970F20.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p>این همان سند را مانند <bdi dir="ltr" class="odt-ltr-term">GET</bdi> تولید می‌کند.</p>
+<p><span id="refheading58048676630786" name="refheading58048676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="314">3.14. <span style="color: #4f81bd">اقدامی که توسط یک ویژگی فیلتر شده است</span></h2>
+<p>بیایید اقدام جدید زیر را ایجاد کنیم:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// /ثانیه/اقدام02</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    [</span><span style="color:#2b91af">HttpPost</span><span style="color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">ContentResult</span><span style="color:#000000"> Action02()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> Content(</span><span style="color:#a31515">&quot;Contrôleur=Second, Action=Action02&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;text/plain&quot;</span><span style="color:#000000">, </span><span style="color:#2b91af">Encoding</span><span style="color:#000000">.UTF8);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>عمل [<bdi dir="ltr" class="odt-ltr-term">Action02</bdi>] مشابه عمل [<bdi dir="ltr" class="odt-ltr-term">Action01</bdi>] است، اما مشخص شده است که فقط از طریق فرمان <bdi dir="ltr" class="odt-ltr-term">HTTP POST</bdi> (خط ۲) قابل دسترسی است. می‌توان از ویژگی‌های دیگر نیز استفاده کرد:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0"><b><bdi dir="ltr" class="odt-ltr-term">HttpGet</bdi></b></div></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">فقط با فرمان <bdi dir="ltr" class="odt-ltr-term">GET</bdi> استفاده می‌شود</div></td></tr><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0"><b><bdi dir="ltr" class="odt-ltr-term">HttpHead</bdi></b></div></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">فقط با فرمان <bdi dir="ltr" class="odt-ltr-term">HEAD</bdi> استفاده می‌شود</div></td></tr><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0"><b><bdi dir="ltr" class="odt-ltr-term">HttpOptions</bdi></b></div></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">فقط برای سفارش <bdi dir="ltr" class="odt-ltr-term">OPTIONS</bdi> معتبر است</div></td></tr><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0"><b><bdi dir="ltr" class="odt-ltr-term">HttpPut</bdi></b></div></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">فقط برای سفارش <bdi dir="ltr" class="odt-ltr-term">PUT</bdi> معتبر است</div></td></tr><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0"><b><bdi dir="ltr" class="odt-ltr-term">HttpDelete</bdi></b></div></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><div style="margin:0 0 0.5em 0">فقط برای فرمان <bdi dir="ltr" class="odt-ltr-term">DELETE</bdi> خدمت می‌کند</div></td></tr></table>
+
+<p>بیایید <bdi dir="ltr" class="odt-ltr-term">URL</bdi> و [/<bdi dir="ltr" class="odt-ltr-term">Second/Action02</bdi>] را مستقیماً در مرورگر درخواست کنیم. سپس از طریق <bdi dir="ltr" class="odt-ltr-term">GET</bdi> درخواست می‌شود. مرورگر سپس پاسخ زیر را نمایش می‌دهد:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/100000000000026900000132851B890B.png" width="432" height="214" style="display:inline-block; margin:4px;width:11.419cm;height:5.669cm;" class="odt-zoomable" data-zoom-src="images/100000000000026900000132851B890B.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p>پاسخ سرور، <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi>، به شرح زیر بود:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>HTTP/1.1 404 Not Found
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>...
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>Content-Length: 3807
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li>خط ۱: کد <bdi dir="ltr" class="odt-ltr-term">HTTP</bdi> با وضعیت<b> 404 <bdi dir="ltr" class="odt-ltr-term">Not Found</bdi> (</b>یافت نشد) نشان می‌دهد که سرور نتوانسته سند درخواستی را پیدا کند. در اینجا، اقدام [<bdi dir="ltr" class="odt-ltr-term">Action02</bdi>] نتوانست درخواست <bdi dir="ltr" class="odt-ltr-term">GET</bdi> را پردازش کند، زیرا فقط دستورات <bdi dir="ltr" class="odt-ltr-term">POST</bdi> را پردازش می‌کند؛
+  </li>
+  <li>خط ۳: اندازه سند بازگردانده شده. این صفحه‌ای است که توسط مرورگر نمایش داده شده است:
+  </li>
+</ul>
+
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000001AD000001572D04E269.png" width="300" height="240" style="display:inline-block; margin:4px;width:7.939cm;height:6.35cm;" class="odt-zoomable" data-zoom-src="images/10000000000001AD000001572D04E269.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p><span id="refheading58050676630786" name="refheading58050676630786" class="odt-bookmark-anchor"></span></p>
+<h2 id="315">3.15. <span style="color: #4f81bd">بازیابی عناصر از یک مسیر</span></h2>
+<p>در دو اقدام توصیف‌شده در بالا، چیزی شبیه به این نوشتیم:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">ContentResult</span><span style="color:#000000"> Action02()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> Content(</span><span style="color:#a31515">&quot;Contrôleur=Second, Action=Action02&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;text/plain&quot;</span><span style="color:#000000">, </span><span style="color:#2b91af">Encoding</span><span style="color:#000000">.UTF8);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>نام‌های کنترلر و اکشن به‌صورت سخت‌کد شده بودند. اگر این نام‌ها را تغییر دهیم، کد دیگر کار نخواهد کرد. می‌توانیم به کنترلر و اکشن به شرح زیر دسترسی پیدا کنیم:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// /Second/Action03</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">public</span><span style="color:#000000"> </span><span style="color:#2b91af">ContentResult</span><span style="color:#000000"> Action03()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">string</span><span style="color:#000000"> texte = </span><span style="color:#0000ff">string</span><span style="color:#000000">.Format(</span><span style="color:#a31515">&quot;Contrôleur={0}, Action={1}&quot;</span><span style="color:#000000">, RouteData.Values[</span><span style="color:#a31515">&quot;controller&quot;</span><span style="color:#000000">], RouteData.Values[</span><span style="color:#a31515">&quot;action&quot;</span><span style="color:#000000">]);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000ff">return</span><span style="color:#000000"> Content(texte, </span><span style="color:#a31515">&quot;text/plain&quot;</span><span style="color:#000000">, </span><span style="color:#2b91af">Encoding</span><span style="color:#000000">.UTF8);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>مسیر تعریف‌شده در [<bdi dir="ltr" class="odt-ltr-term">App</bdi>_Start/<bdi dir="ltr" class="odt-ltr-term">RouteConfig</bdi>] به شرح زیر است:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">      routes.MapRoute(</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          name: </span><span style="color:#a31515">&quot;Default&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          url: </span><span style="color:#a31515">&quot;{controller}/{action}/{id}&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          defaults: </span><span style="color:#0000ff">new</span><span style="color:#000000"> { controller = </span><span style="color:#a31515">&quot;Home&quot;</span><span style="color:#000000">, action = </span><span style="color:#a31515">&quot;Index&quot;</span><span style="color:#000000">, id = </span><span style="color:#2b91af">UrlParameter</span><span style="color:#000000">.Optional }</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">);</span></span>
+</code></pre></div>
+
+<p>خط ۳: سه عنصر مسیر را می‌توان از طریق <strong><bdi dir="ltr" class="odt-ltr-term">RouteData.Values</bdi>[&quot;<bdi dir="ltr" class="odt-ltr-term">élément</bdi>&quot;]</strong> به دست آورد، با <strong>عنصر</strong> در [<bdi dir="ltr" class="odt-ltr-term">controller, action, id</bdi>].</p>
+<p>بیایید <bdi dir="ltr" class="odt-ltr-term">URL</bdi> و [<bdi dir="ltr" class="odt-ltr-term">http://localhost:49302/Second/Action03</bdi>] را بازیابی کنیم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/100000000000018100000072F6504BF3.png" width="269" height="80" style="display:inline-block; margin:4px;width:7.13cm;height:2.11cm;" class="odt-zoomable" data-zoom-src="images/100000000000018100000072F6504BF3.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<p>ما با موفقیت نام کنترلر و نام اکشن را بازیابی کردیم.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        این دوره آموزشی, نوشته شده توسط سرژ تاه, تحت شرایط
+        Creative Commons Attribution – Non-Commercial –
+        ShareAlike 3.0 Unported.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

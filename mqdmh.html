@@ -1,0 +1,908 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/fa-aspnetmvc-nov-2013/mqdmh.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="mbny-brnmhnwysy-wb.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>1. مقدمه - مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها" class="md-header__button md-logo" aria-label="مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. مقدمه
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="مخاطب به حالت تاریک"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="مخاطب به حالت تاریک" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="مخاطب به حالت روشن"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="مخاطب به حالت روشن" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/fa-aspnetmvc-nov-2013" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها" class="md-nav__button md-logo" aria-label="مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    مقدمه‌ای بر ASP.NET MVC با استفاده از مثال‌ها
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/fa-aspnetmvc-nov-2013" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    خوش آمدید
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. مقدمه
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="mqdmh.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. مقدمه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-aspnet-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. نقش ASP.NET و MVC در یک برنامه وب
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-aspnet-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. ASP.NET MVC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. ابزارهای مورد استفاده
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. مثال‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mbny-brnmhnwysy-wb.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. مبانی برنامه‌نویسی وب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="khntrlkhnndhh-khshnh-msyryby.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. کنترل‌کننده‌ها، اکشن‌ها، مسیریابی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mdl-ykh-khshn.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. مدل یک اکشن
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wyw-w-qlb-an.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. ویو و قالب آن
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="bynlmllyszy-wywh.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. بین‌المللی‌سازی ویوها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="twnmndszy-ykh-brnmh-b-ajax-aspnet-mvc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. توانمندسازی یک برنامه با Ajax ASP.NET MVC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ntyjhgyry-mwqt.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. نتیجه‌گیری موقت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mlh-mwrdy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. مطالعه موردی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ntyjhgyry.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. نتیجه‌گیری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pywsth.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="refheading1882601168461456" name="refheading1882601168461456" class="odt-bookmark-anchor"></span></p>
+<h1 id="1">1. <span style="color: #365f91">مقدمه</span></h1>
+<p><bdi dir="ltr" class="odt-ltr-term">PDF</bdi> برای این سند در |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQCqqM9W0Gv_TKw178TfgbcSAY09muNT5PO3UWYlM9EHD4w?e=y92xr9"><bdi dir="ltr" class="odt-ltr-term">ICI</bdi></a>| موجود است.</p>
+<p>مثال‌های این سند در |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQCKNeWRQFCfSqwnA6RDUJ7yAd9qZkIe89vFgFNJvCBIS6o?e=Pv92Nd"><bdi dir="ltr" class="odt-ltr-term">ICI</bdi></a>| موجود است.</p>
+<p>در اینجا، هدف ما این است که از طریق مثال‌ها، مفاهیم کلیدی <bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi>، یک چارچوب وب، را معرفی کنیم.<bdi dir="ltr" class="odt-ltr-term">NET</bdi>، که چارچوبی برای توسعهٔ برنامه‌های وب بر اساس الگوی <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> (مدل–نما–کنترل‌کننده) فراهم می‌کند.</p>
+<p>درک مثال‌های این سند نیازمند پیش‌نیازهای کمی است. تنها دانش پایه‌ای از زبان <bdi dir="ltr" class="odt-ltr-term">C#</bdi> ضروری است. این دانش را می‌توان در سند <strong>«مقدمه‌ای بر زبان <bdi dir="ltr" class="odt-ltr-term">C#</bdi>»</strong> در <bdi dir="ltr" class="odt-ltr-term">URL</bdi> [<a href="https://stahe.github.io/fa-csharp-mai-2008/"><u><span style="color: #0563c1">آموزش <bdi dir="ltr" class="odt-ltr-term">C#</bdi> نسخه ۳.۰ با فریم‌ور .<bdi dir="ltr" class="odt-ltr-term">NET</bdi> ۳.۵ (۲۰۰۸)</span></u></a>] یافت. یک مطالعه موردی برای به کارگیری دانش کسب‌شده در <bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi> ارائه شده است. این مطالعه از چارچوب <bdi dir="ltr" class="odt-ltr-term">Entity Framework</bdi> (نقشه‌بردار شیء-رابطه‌ای) <bdi dir="ltr" class="odt-ltr-term">ORM</bdi> استفاده می‌کند. این <bdi dir="ltr" class="odt-ltr-term">ORM</bdi> در مستند <strong>«مقدمه‌ای بر <bdi dir="ltr" class="odt-ltr-term">Entity Framework</bdi> 5 <bdi dir="ltr" class="odt-ltr-term">Code First</bdi>»</strong> ارائه شده است که در <bdi dir="ltr" class="odt-ltr-term">URL</bdi> [<a href="https://stahe.github.io/fa-ef5cf-oct-2012/"><u><span style="color: #0563c1">مقدمه‌ای بر <bdi dir="ltr" class="odt-ltr-term">Entity Framework</bdi> 5 <bdi dir="ltr" class="odt-ltr-term">Code First</bdi> از طریق مثال‌ها (۲۰۱۲)</span></u></a>] در دسترس است.</p>
+<p>نمونه‌های مختلف این سند به صورت یک فایل قابل دانلود در <bdi dir="ltr" class="odt-ltr-term">URL</bdi> و [<a href="https://stahe.github.io/fa-aspnetmvc-nov-2013/"><u><span style="color: #0563c1">مقدمه‌ای بر چارچوب <bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi> از طریق مثال‌ها (۲۰۱۳)</span></u></a>] موجود است.</p>
+<p>این سند از جهات بسیاری ناقص است. برای اطلاعات بیشتر در مورد <bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi>، می‌توان به مراجع زیر مراجعه کرد:</p>
+<ul>
+<li><strong>[<bdi dir="ltr" class="odt-ltr-term">ref1</bdi>]</strong>: کتاب <strong>«<bdi dir="ltr" class="odt-ltr-term">Pro</bdi></strong> <strong><span style="color: #000000"><bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi></span></strong> 4» نوشتهٔ <strong>آدام فریمن</strong> و منتشرشده توسط <strong><bdi dir="ltr" class="odt-ltr-term">Apress</bdi></strong>. این کتابی عالی است. اگر این کتاب به‌صورت رایگان و به زبان فرانسوی به‌صورت آنلاین در دسترس بود، این سند بی‌نیاز بود. توصیه می‌کنم هر کسی که توانایی‌اش را دارد، با استفاده از این کتاب، <bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi> را بیاموزد. کد منبع مثال‌های کتاب به صورت رایگان در <bdi dir="ltr" class="odt-ltr-term">URL</bdi> [<bdi dir="ltr" class="odt-ltr-term">http://www.apress.com/9781430242369</bdi>] در دسترس است؛</li>
+<li><strong>[<bdi dir="ltr" class="odt-ltr-term">ref2</bdi>]</strong>: وب‌سایت چارچوب [<bdi dir="ltr" class="odt-ltr-term">http://www.asp.net/mvc</bdi>]. در آنجا تمام مطالبی را که برای خودآموزی نیاز دارید، خواهید یافت. نسخه فرانسوی در <bdi dir="ltr" class="odt-ltr-term">URL</bdi> [<bdi dir="ltr" class="odt-ltr-term">http://dotnet.developpez.com/mvc/</bdi> ] موجود است؛</li>
+<li>وب‌سایت [<bdi dir="ltr" class="odt-ltr-term">developpez.com</bdi>] که به <bdi dir="ltr" class="odt-ltr-term">ASP.NET</bdi> و [<bdi dir="ltr" class="odt-ltr-term">http://dotnet.developpez.com/aspnet/</bdi> ] اختصاص دارد.</li>
+</ul>
+<p>این سند به گونه‌ای نوشته شده است که می‌توان آن را بدون رایانه در دست خواند. در نتیجه، شامل تصاویر صفحه متعدد است.</p>
+<p><span id="refheading99511454977699" name="refheading99511454977699" class="odt-bookmark-anchor"></span></p>
+<h2 id="11-aspnet-mvc">1.1. <span style="color: #4f81bd">نقش <bdi dir="ltr" class="odt-ltr-term">ASP.NET</bdi> و <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> در یک برنامه وب</span></h2>
+<p>ابتدا، بیایید نقش <bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi> را در توسعه یک برنامه وب در نظر بگیریم. در اکثر موارد، این برنامه بر روی یک معماری چندلایه مانند موارد زیر ساخته خواهد شد:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000007D8000001C76DFA2B2A.png" width="680" height="154" style="display:inline-block; margin:4px;width:17.999cm;height:4.078cm;" class="odt-zoomable" data-zoom-src="images/10000000000007D8000001C76DFA2B2A.png" /></td></tr></table>
+
+<ul>
+<li>لایه [<bdi dir="ltr" class="odt-ltr-term">Web</bdi>] لایه‌ای است که با کاربر وب‌اپلیکیشن تعامل دارد. کاربر از طریق صفحات وبی که توسط یک مرورگر نمایش داده می‌شوند، با وب‌اپلیکیشن تعامل می‌کند. <strong>این لایه جایی است که <bdi dir="ltr" class="odt-ltr-term">ASP.NET</bdi> و <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> قرار دارند، و تنها در همین لایه؛</strong></li>
+<li>لایه [<bdi dir="ltr" class="odt-ltr-term">métier</bdi>] قواعد کسب‌وکار برنامه را پیاده‌سازی می‌کند، مانند محاسبه حقوق یا فاکتور. این لایه از داده‌های کاربر از طریق لایه [<bdi dir="ltr" class="odt-ltr-term">Web</bdi>] و از <bdi dir="ltr" class="odt-ltr-term">SGBD</bdi> از طریق لایه [<bdi dir="ltr" class="odt-ltr-term">DAO</bdi>] استفاده می‌کند؛</li>
+<li>لایه [<bdi dir="ltr" class="odt-ltr-term">DAO</bdi>] (ابجکت‌های دسترسی به داده)، لایه [<bdi dir="ltr" class="odt-ltr-term">ORM</bdi>] (نقشه‌بردار شیء-رابطه‌ای) و کانکتور <bdi dir="ltr" class="odt-ltr-term">ADO.NET</bdi> دسترسی به داده‌ها در <bdi dir="ltr" class="odt-ltr-term">SGBD</bdi> را مدیریت می‌کنند. لایه [<bdi dir="ltr" class="odt-ltr-term">ORM</bdi>] به‌عنوان پلی میان اشیاء مدیریت‌شده توسط لایه [<bdi dir="ltr" class="odt-ltr-term">DAO</bdi>] و سطر و ستون‌های جداول در یک پایگاه داده رابطه‌ای عمل می‌کند. دو <bdi dir="ltr" class="odt-ltr-term">ORM</bdi> به طور معمول در سراسر جهان استفاده می‌شوند: <bdi dir="ltr" class="odt-ltr-term">NET</bdi>، <strong><bdi dir="ltr" class="odt-ltr-term">NHibernate</bdi></strong> (<a href="http://sourceforge.net/projects/nhibernate/"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">http://sourceforge.net/projects/nhibernate/</bdi></span></u></a>) و <strong><bdi dir="ltr" class="odt-ltr-term">Entity Framework</bdi></strong> (<a href="http://msdn.microsoft.com/en-us/data/ef.aspx"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">http://msdn.microsoft.com/en-us/data/ef.aspx</bdi></span></u></a>);</li>
+<li>یکپارچه‌سازی لایه‌ها را می‌توان با استفاده از یک مخزن تزریق وابستگی مانند <bdi dir="ltr" class="odt-ltr-term">Spring</bdi> (<a href="http://www.springframework.net/"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">http://www.springframework.net/</bdi></span></u></a>) انجام داد؛</li>
+</ul>
+<p>اکثر مثال‌های ارائه‌شده در زیر تنها از یک لایه، لایه [<bdi dir="ltr" class="odt-ltr-term">Web</bdi>]، استفاده خواهند کرد:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000002CB000001344402A749.png" width="250" height="108" style="display:inline-block; margin:4px;width:6.62cm;height:2.85cm;" class="odt-zoomable" data-zoom-src="images/10000000000002CB000001344402A749.png" /></td></tr></table>
+
+<p>با این حال، این سند با ساخت یک برنامه وب چندلایه به پایان می‌رسد:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000007E50000018DC284155D.png" width="680" height="134" style="display:inline-block; margin:4px;width:17.999cm;height:3.535cm;" class="odt-zoomable" data-zoom-src="images/10000000000007E50000018DC284155D.png" /></td></tr></table>
+
+<p><span id="refheading99531454977699" name="refheading99531454977699" class="odt-bookmark-anchor"></span></p>
+<h2 id="12-aspnet-mvc">1.2. <span style="color: #4f81bd"><bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi></span></h2>
+<p><bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi> الگوی معماری موسوم به <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> (مدل–نما–کنترل‌کننده) را به شرح زیر پیاده‌سازی می‌کند:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/1000000000000718000002334AE9A6E1.png" width="680" height="211" style="display:inline-block; margin:4px;width:17.999cm;height:5.579cm;" class="odt-zoomable" data-zoom-src="images/1000000000000718000002334AE9A6E1.png" /></td></tr></table>
+
+<p>پردازش یک درخواست مشتری به شرح زیر انجام می‌شود:</p>
+<ol>
+<li><strong>درخواست</strong> – <bdi dir="ltr" class="odt-ltr-term">URL</bdi>های درخواستی به شکل <bdi dir="ltr" class="odt-ltr-term">http://machine:port/contexte/Controlleur/Action/param1/param2/....</bdi>?p1=v1&amp;p2=v2&amp;... هستند. [<bdi dir="ltr" class="odt-ltr-term">Front Controller</bdi>] از یک فایل پیکربندی برای «مسیردهی» درخواست به کنترل‌کننده صحیح و اکشن صحیح در آن کنترل‌کننده استفاده می‌کند. برای این کار، از مسیر [<bdi dir="ltr" class="odt-ltr-term">Controlleur/Action</bdi>] در <bdi dir="ltr" class="odt-ltr-term">URL</bdi> استفاده می‌کند. باقیمانده <bdi dir="ltr" class="odt-ltr-term">URL</bdi> و [/<bdi dir="ltr" class="odt-ltr-term">param1/param2/...</bdi>] پارامترهای اختیاری هستند که به اکشن ارسال می‌شوند. <strong>«<bdi dir="ltr" class="odt-ltr-term">C</bdi>»</strong> در <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> در این مورد، رشته [<bdi dir="ltr" class="odt-ltr-term">Front Controller, Contrôleur, Action</bdi>] است. اگر مسیر [<bdi dir="ltr" class="odt-ltr-term">Controlleur/Action</bdi>] به یک کنترلر یا اکشن موجود منتهی نشود، سرور وب پاسخ خواهد داد که <bdi dir="ltr" class="odt-ltr-term">URL</bdi> درخواستی یافت نشد.</li>
+</ol>
+<ol start="2">
+  <li>پردازش 
+  </li>
+</ol>
+<ul>
+  <li>عمل انتخاب‌شده ممکن است از پارامترهای <bdi dir="ltr" class="odt-ltr-term">parami</bdi> که توسط [<bdi dir="ltr" class="odt-ltr-term">Front Controller</bdi>] به آن ارسال شده است، استفاده کند. این پارامترها ممکن است از چندین منبع منشأ بگیرند:
+  </li>
+  <li>مسیر [/<bdi dir="ltr" class="odt-ltr-term">param1/param2/...</bdi>] از <bdi dir="ltr" class="odt-ltr-term">URL</bdi>،
+  </li>
+  <li>پارامترهای [p1=v1&amp;p2=v2] از <bdi dir="ltr" class="odt-ltr-term">URL</bdi>,
+  </li>
+  <li>پارامترهای ارسال‌شده توسط مرورگر در درخواست آن؛
+  </li>
+  <li>هنگام پردازش درخواست کاربر، ممکن است اقدام به لایه‌های [<bdi dir="ltr" class="odt-ltr-term">métier</bdi>] و [2b] نیاز داشته باشد. پس از پردازش درخواست مشتری، ممکن است پاسخ‌های مختلفی ایجاد شود. یک مثال کلاسیک این است:
+  </li>
+  <li>یک صفحهٔ خطا اگر درخواست نتوانست به درستی پردازش شود
+  </li>
+  <li>در غیر این صورت، یک صفحه تأیید
+  </li>
+  <li>اقدام دستور نمایش یک نمای مشخص را صادر می‌کند [3]. این نما داده‌هایی را که به عنوان <b>مدل نما </b>شناخته می‌شوند، نمایش می‌دهد. این همان <b><bdi dir="ltr" class="odt-ltr-term">M</bdi> </b>در <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> است. اقدام این مدل <bdi dir="ltr" class="odt-ltr-term">M</bdi> [2c] را ایجاد کرده و به نمایش یک نما <b><bdi dir="ltr" class="odt-ltr-term">V</bdi> </b>[3] دستور می‌دهد؛
+  </li>
+</ul>
+<ol>
+  <li><b>پاسخ </b>– نمای انتخاب‌شده <b><bdi dir="ltr" class="odt-ltr-term">V</bdi> </b>از مدل <b><bdi dir="ltr" class="odt-ltr-term">M</bdi> </b>ساخته‌شده توسط اکشن برای راه‌اندازی بخش‌های پویا از پاسخی که باید به کلاینت ارسال کند <bdi dir="ltr" class="odt-ltr-term">HTML</bdi> استفاده می‌کند، و سپس این پاسخ را ارسال می‌کند.
+  </li>
+</ol>
+
+<p>اکنون، بیایید ارتباط بین معماری وب <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> و معماری لایه‌ای را روشن کنیم. بسته به نحوه تعریف <strong>مدل</strong>، این دو مفهوم ممکن است به هم مرتبط باشند یا نباشند. بیایید یک برنامه وب تک‌لایه <bdi dir="ltr" class="odt-ltr-term">ASP.NET MVC</bdi> را در نظر بگیریم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/100000000000062E00000242EE335F0F.png" width="680" height="249" style="display:inline-block; margin:4px;width:17.999cm;height:6.576cm;" class="odt-zoomable" data-zoom-src="images/100000000000062E00000242EE335F0F.png" /></td></tr></table>
+
+<p>اگر لایه [<bdi dir="ltr" class="odt-ltr-term">Web</bdi>] را با استفاده از <bdi dir="ltr" class="odt-ltr-term">ASP.NET</bdi> و <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> پیاده‌سازی کنیم، در واقع یک معماری وب <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> خواهیم داشت اما یک معماری چندلایه نخواهیم داشت. در اینجا، لایه [<bdi dir="ltr" class="odt-ltr-term">Web</bdi>] همه چیز را مدیریت خواهد کرد: ارائه، منطق کسب‌وکار و دسترسی به داده‌ها. این اکشن‌ها هستند که این کار را انجام خواهند داد.</p>
+<p>اکنون، بیایید یک معماری وب چندلایه را در نظر بگیریم:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000007260000018CC3D6C76D.png" width="680" height="147" style="display:inline-block; margin:4px;width:17.999cm;height:3.895cm;" class="odt-zoomable" data-zoom-src="images/10000000000007260000018CC3D6C76D.png" /></td></tr></table>
+
+<p>لایه [<bdi dir="ltr" class="odt-ltr-term">Web</bdi>] می‌تواند بدون فریم‌ورک و بدون پیروی از مدل <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> پیاده‌سازی شود. بنابراین ما در واقع یک معماری چندلایه داریم، اما لایه وب مدل <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> را پیاده‌سازی نمی‌کند.</p>
+<p>بنابراین، لایه [<bdi dir="ltr" class="odt-ltr-term">Web</bdi>]می‌تواند با استفاده از <bdi dir="ltr" class="odt-ltr-term">ASP.NET</bdi> و <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> پیاده‌سازی شود که منجر به یک معماری لایه‌ای با یک لایه [<bdi dir="ltr" class="odt-ltr-term">Web</bdi>] از نوع <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> می‌شود. پس از انجام این کار، این لایه <bdi dir="ltr" class="odt-ltr-term">ASP.NET</bdi> و <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> را می‌توان با یک لایه استاندارد <bdi dir="ltr" class="odt-ltr-term">ASP.NET</bdi> (<bdi dir="ltr" class="odt-ltr-term">WebForms</bdi>) جایگزین کرد در حالی که بقیه را حفظ می‌کند (منطق کسب‌وکار، <bdi dir="ltr" class="odt-ltr-term">DAO</bdi>، <bdi dir="ltr" class="odt-ltr-term">ORM</bdi>) <strong>دقیقاً همان‌طور که هست</strong>.  سپس یک معماری لایه‌ای خواهیم داشت با یک لایه [<bdi dir="ltr" class="odt-ltr-term">Web</bdi>] که دیگر از نوع <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> نیست.</p>
+<p>در <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> بیان کردیم که مدل <bdi dir="ltr" class="odt-ltr-term">M</bdi> همان نمای <bdi dir="ltr" class="odt-ltr-term">V</bdi> است، <bdi dir="ltr" class="odt-ltr-term">c.a.d</bdi> – مجموعه‌ای از داده‌هایی که توسط نمای <bdi dir="ltr" class="odt-ltr-term">V</bdi> نمایش داده می‌شوند. تعریف دیگری از مدل <bdi dir="ltr" class="odt-ltr-term">M</bdi> برای <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> ارائه شده است:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/100000000000076E0000019EAC026A07.png" width="680" height="148" style="display:inline-block; margin:4px;width:17.999cm;height:3.918cm;" class="odt-zoomable" data-zoom-src="images/100000000000076E0000019EAC026A07.png" /></td></tr></table>
+
+<p>بسیاری از نویسندگان معتقدند که آنچه در سمت راست لایه [<bdi dir="ltr" class="odt-ltr-term">Web</bdi>] قرار دارد، مدل <bdi dir="ltr" class="odt-ltr-term">M</bdi> از <bdi dir="ltr" class="odt-ltr-term">MVC</bdi> را تشکیل می‌دهد. برای جلوگیری از ابهام، می‌توان به موارد زیر اشاره کرد:</p>
+<ul>
+  <li><b>مدل دامنه </b>وقتی به همه چیز در سمت راست لایه [<bdi dir="ltr" class="odt-ltr-term">Web</bdi>] اشاره می‌شود
+  </li>
+  <li><b>مدل نماهنگ </b>زمانی که به داده‌های نمایش‌داده‌شده توسط یک نما <bdi dir="ltr" class="odt-ltr-term">V</bdi> اشاره می‌شود
+  </li>
+</ul>
+
+<p>از این پس، اصطلاح «مدل <bdi dir="ltr" class="odt-ltr-term">M</bdi>» منحصراً به <strong>مدل یک نما</strong> <bdi dir="ltr" class="odt-ltr-term">V</bdi> اشاره خواهد داشت.</p>
+<p><span id="refheading99551454977699" name="refheading99551454977699" class="odt-bookmark-anchor"></span></p>
+<h2 id="13">1.3. <span style="color: #4f81bd">ابزارهای مورد استفاده</span></h2>
+<p>در ادامه، ما از نسخه‌های <bdi dir="ltr" class="odt-ltr-term">Express</bdi> ویژوال استودیو ۲۰۱۲ (سپتامبر ۲۰۱۳) استفاده می‌کنیم:</p>
+<ul>
+  <li>[<bdi dir="ltr" class="odt-ltr-term">http://www.microsoft.com/visualstudio/fra/products/visual-studio-express-for-windows-desktop</bdi> ] برای برنامه‌های دسکتاپ؛
+  </li>
+  <li>[<bdi dir="ltr" class="odt-ltr-term">http://www.microsoft.com/visualstudio/fra/products/visual-studio-express-for-Web</bdi> ] برای برنامه‌های وب.
+  </li>
+</ul>
+
+<p>برای نصب آخرین نسخه‌های این محصولات، می‌توانید از [<bdi dir="ltr" class="odt-ltr-term">Web Platform Installer</bdi>] مایکروسافت (<a href="http://www.microsoft.com/web/downloads/platform.aspx"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">http://www.microsoft.com/Web/downloads/platform.aspx</bdi></span></u></a>) استفاده کنید.</p>
+<p>علاوه بر این، از مرورگر <strong>کروم</strong> گوگل (<a href="http://www.google.fr/intl/fr/chrome/browser/"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">http://www.google.fr/intl/fr/chrome/browser/</bdi></span></u></a>) استفاده کنید. افزونه [<bdi dir="ltr" class="odt-ltr-term">Advanced Rest Client</bdi>]<span id="advanced-rest-client" name="advanced-rest-client" class="odt-bookmark-anchor"></span> را اضافه کنید. می‌توانید این کار را به شرح زیر انجام دهید:</p>
+<ul>
+  <li>با استفاده از مرورگر کروم به وب‌سایت [<bdi dir="ltr" class="odt-ltr-term">Google Web store</bdi>] (<a href="https://chrome.google.com/webstore"><u><span style="color: #0563c1"><bdi dir="ltr" class="odt-ltr-term">https://chrome.google.com/webstore</bdi></span></u></a>) بروید؛
+  </li>
+  <li>برنامۀ [<bdi dir="ltr" class="odt-ltr-term">Advanced Rest Client</bdi>] را جستجو کنید:
+  </li>
+</ul>
+
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000001B0000000D21DA44C58.png" width="302" height="147" style="display:inline-block; margin:4px;width:7.999cm;height:3.889cm;" class="odt-zoomable" data-zoom-src="images/10000000000001B0000000D21DA44C58.png" /></td><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;">&nbsp;</td></tr></table>
+
+<ul>
+  <li>سپس برنامه برای دانلود در دسترس قرار می‌گیرد:
+  </li>
+</ul>
+
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000003BB000000AE1112526C.png" width="661" height="120" style="display:inline-block; margin:4px;width:17.48cm;height:3.184cm;" class="odt-zoomable" data-zoom-src="images/10000000000003BB000000AE1112526C.png" /></td></tr></table>
+
+<ul>
+  <li>برای دانلود آن، باید یک حساب گوگل ایجاد کنید. سپس [<bdi dir="ltr" class="odt-ltr-term">Google Web Store</bdi>] از شما تأیید [1] را می‌خواهد:
+  </li>
+</ul>
+
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/100000000000083800000381099DA849.png" width="680" height="290" style="display:inline-block; margin:4px;width:17.999cm;height:7.673cm;" class="odt-zoomable" data-zoom-src="images/100000000000083800000381099DA849.png" /></td></tr></table>
+
+<ul>
+  <li>در [2]، افزونهٔ اضافه شده تحت گزینهٔ [<bdi dir="ltr" class="odt-ltr-term">Applications</bdi>] [3] در دسترس است. این گزینه در هر زبانهٔ جدیدی که ایجاد می‌کنید (<bdi dir="ltr" class="odt-ltr-term">CTRL-T</bdi>) در مرورگر نمایش داده می‌شود.
+  </li>
+</ul>
+
+<p><span id="refheading99631454977699" name="refheading99631454977699" class="odt-bookmark-anchor"></span></p>
+<h2 id="14">1.4. <span style="color: #4f81bd">مثال‌ها</span></h2>
+<p>اکثر مثال‌های آموزشی تنها به لایه وب محدود خواهند بود:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/10000000000006370000023DEEFC5AC7.png" width="680" height="245" style="display:inline-block; margin:4px;width:17.999cm;height:6.482cm;" class="odt-zoomable" data-zoom-src="images/10000000000006370000023DEEFC5AC7.png" /></td></tr></table>
+
+<p>پس از اتمام این آموزش، یک برنامه وب چندلایه را معرفی خواهیم کرد:</p>
+<table dir="rtl" class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td dir="rtl" style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: right;"><img src="images/100000000000071F000002349B70ADB8.png" width="680" height="210" style="display:inline-block; margin:4px;width:17.999cm;height:5.567cm;" class="odt-zoomable" data-zoom-src="images/100000000000071F000002349B70ADB8.png" /></td></tr></table>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        این دوره آموزشی, نوشته شده توسط سرژ تاه, تحت شرایط
+        Creative Commons Attribution – Non-Commercial –
+        ShareAlike 3.0 Unported.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
